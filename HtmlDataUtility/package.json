@@ -1,0 +1,9 @@
+{
+  "name": "html-data-utility",
+  "version": "0.0.0",
+  "description": "HtmlDataUtility",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  }
+}

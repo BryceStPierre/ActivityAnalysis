@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/3/2019 9:25:34 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BRYCE-DESKTOP"
+  DTS:CreatorName="BRYCE-DESKTOP\bryce"
+  DTS:DTSID="{39435F5B-B0CA-4402-93D2-F2A5E4C56133}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="4105"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionGUID="{D0E03F83-1794-4A13-B4CB-D9DF09FC8895}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+</DTS:Executable>
