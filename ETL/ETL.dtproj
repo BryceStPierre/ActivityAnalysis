@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">BRYCE-DESKTOP</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAi/Go0wCcy0W4QwkR1ValjQAAAAACAAAAAAAQZgAAAAEAACAAAABe+HPmxy6EXMa+ALr6lDkjYncAUnir4eY2qS7jVGECNAAAAAAOgAAAAAIAACAAAADiM+XtB+j2W4GiH/ydul1Zbfa+ed0k67sOdEiG6E/WCpAAAADc/qe0IuYX0EyEhWPIbERa4F43Gl+Ukk7FsxbIZTgy/GofGe8qyrsCUtTceXFiTr/z94muniIn00D/a+41Ffk4/Ck01TXjpeGGVZBV8h5Mh9sjCBXC/XG8hT7iSoSTGggsQBzQYOx1OF54eW9VZ0Bofk3q8QnsrnRXPi0uioaw8n8Nm7OemyozUf0A5/u6shhAAAAAVBDFU19EiAfpdKIcuCLLpbn9ob/uW5GoJI+Ss+Lt5uz2yaWkbijyDr1XnujMLIRhIetBApclo1tGhCCX/XdlqQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAi/Go0wCcy0W4QwkR1ValjQAAAAACAAAAAAAQZgAAAAEAACAAAABixE2x3e/eC1HW+/FJgSDWIjUhnGkyVmY7VvXIpNBlZQAAAAAOgAAAAAIAACAAAADKOiBpbtSUhxcxDXXGRYUP9gXFSM3wexdPxQMv6LSWwJAAAADBVg0OzjLt+3fsQDD1ox1rN1kYXc4HY8iZ6Z5Y6e7hsQPkJ0TQ4wt5QV5RHgjjq/AXuYZ7HHe/C4aDZ2FK2ArYUXxWFcgVB+m6vxXj7QMd6BqVWO163UJNY9Pc8ZPbPdUbN2rH3yjS+Z6zDQYaQ0ZK0tjrYaKAWQd1blgoDea2BHWDN8Y2/AsUJ/87ndJym+RAAAAAqa41NSWJjKFtOHZiHbSSslt+J3bYtKAa8JO/v32tzZI+0r3m3sKbUMp5BXmX4cIPajOm0lN9KsoZRS3l8IxFkQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -63,6 +63,18 @@
   <Configurations>
     <Configuration>
       <Name>Development</Name>
+      <Options>
+        <OutputPath>bin</OutputPath>
+        <ConnectionMappings />
+        <ConnectionProviderMappings />
+        <ConnectionSecurityMappings />
+        <DatabaseStorageLocations />
+        <TargetServerVersion>SQLServer2017</TargetServerVersion>
+        <ParameterConfigurationValues />
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>Release</Name>
       <Options>
         <OutputPath>bin</OutputPath>
         <ConnectionMappings />
