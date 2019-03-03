@@ -42,8 +42,8 @@ namespace EnvironmentManager
 
         static string GetConnectionString ()
         {
-            //return "Data Source=localhost;Initial Catalog=ActivityDatabaseMeta_DEV;Trusted_Connection=True;User Id=" + Environment.UserName;
-            return "Data Source=localhost;Initial Catalog=ActivityDatabaseMeta_DEV;Trusted_Connection=True";
+            //return "Data Source=localhost;Initial Catalog=ActivityMeta_DEV;Trusted_Connection=True;User Id=" + Environment.UserName;
+            return "Data Source=localhost;Initial Catalog=ActivityMeta_DEV;Trusted_Connection=True";
         }
     }
 }
