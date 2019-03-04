@@ -1,6 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Threading;
 using System.Data.SqlClient;
+
+using EnvironmentManager.Properties;
 
 namespace EnvironmentManager
 {
@@ -10,40 +13,51 @@ namespace EnvironmentManager
         {
             if (args.Length < 1)
             {
-                Console.WriteLine("You must provide the path to the main data sources directory.");
+                Console.WriteLine("You must provide the name of the meta database.");
                 Thread.Sleep(5000);
-                Environment.Exit(0);
+                Environment.Exit(-1);
             }
-            //Console.WriteLine(args[0]);
-            
+
+            EnsureDirectoriesExist(args[0]);
+            Thread.Sleep(5000);
+            Environment.Exit(0);
+        }
 
 
-            using (SqlConnection connection = new SqlConnection(GetConnectionString()))
+        static void EnsureDirectoriesExist (string metaDatabaseName)
+        {
+            using (SqlConnection connection = new SqlConnection(GetConnectionString(metaDatabaseName)))
             {
-                SqlCommand command = new SqlCommand("SELECT * FROM dbo.Test", connection);
                 connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                try
+
+                using (SqlCommand command = new SqlCommand(Resources.DirectoriesQuery, connection))
                 {
-                    while (reader.Read())
+                    SqlDataReader reader = command.ExecuteReader();
+                    try
                     {
-                        Console.WriteLine(String.Format("{0}, {1}",
-                            reader[0], reader[1]));
+                        while (reader.Read())
+                        {
+                            string path = String.Format("{0}", reader[0]);
+                            string yearPart = String.Format("{0}", reader[1]);
+                            string monthPart = String.Format("{0}", reader[2]);
+                            string namePart = String.Format("{0}", reader[3]);
+
+                            path = Path.Join(path, yearPart);
+                            path = Path.Join(path, monthPart);
+                            path = Path.Join(path, namePart);
+
+                            DirectoryInfo d = Directory.CreateDirectory(path);
+                            Console.WriteLine("Created {0}.", d.FullName);
+                        }
+                    }
+                    finally
+                    {
+                        reader.Close();
                     }
                 }
-                finally
-                {
-                    // Always call Close when done reading.
-                    reader.Close();
-                }
             }
-            Thread.Sleep(5000);
         }
 
-        static string GetConnectionString ()
-        {
-            //return "Data Source=localhost;Initial Catalog=ActivityMeta_DEV;Trusted_Connection=True;User Id=" + Environment.UserName;
-            return "Data Source=localhost;Initial Catalog=ActivityMeta_DEV;Trusted_Connection=True";
-        }
+        static string GetConnectionString(string database) => $"Data Source=localhost;Initial Catalog={database};Trusted_Connection=True";
     }
 }

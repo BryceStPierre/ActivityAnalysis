@@ -61,11 +61,11 @@ namespace EnvironmentManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT Path FROM Integration.Locations WHERE Name = &apos;Root&apos;.
+        ///   Looks up a localized string similar to SELECT * FROM Environment.Directories.
         /// </summary>
-        internal static string RootDirectoryQuery {
+        internal static string DirectoriesQuery {
             get {
-                return ResourceManager.GetString("RootDirectoryQuery", resourceCulture);
+                return ResourceManager.GetString("DirectoriesQuery", resourceCulture);
             }
         }
     }
