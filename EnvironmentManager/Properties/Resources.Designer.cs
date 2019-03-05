@@ -61,7 +61,7 @@ namespace EnvironmentManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT * FROM Environment.Directories.
+        ///   Looks up a localized string similar to SELECT Root, Year, Month, Name FROM Environment.Directories.
         /// </summary>
         internal static string DirectoriesQuery {
             get {
