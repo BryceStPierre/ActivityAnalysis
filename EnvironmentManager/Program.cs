@@ -12,26 +12,25 @@ namespace EnvironmentManager
     {
         static void Main (string[] args)
         {
-            if (args.Length < 1)
-            {
-                Console.WriteLine("You must provide the name of the meta database.");
-                Thread.Sleep(5000);
-                Environment.Exit(-1);
-            }
+            //if (args.Length < 1)
+            //{
+            //    Console.WriteLine("You must provide the name of the meta database.");
+            //    Thread.Sleep(5000);
+            //    Environment.Exit(-1);
+            //}
 
-            ArrayList directoryList = GetDirectoryList(args[0]);
-            CreateDirectories(directoryList);
-            //ScanDirectories(directoryList);
+            ArrayList directoryList = GetDirectoryList();
+            //CreateDirectories(directoryList);
+
+            ScanDirectories(directoryList);
 
             Thread.Sleep(5000);
             Environment.Exit(0);
         }
 
-        static string GetConnectionString(string database) => $"Data Source=localhost;Initial Catalog={database};Trusted_Connection=True";
-
-        static ArrayList GetDirectoryList (string metaDatabaseName)
+        static ArrayList GetDirectoryList ()
         {
-            using (SqlConnection connection = new SqlConnection(GetConnectionString(metaDatabaseName)))
+            using (SqlConnection connection = new SqlConnection(Resources.ConnectionString))
             {
                 connection.Open();
                 ArrayList directoryList = new ArrayList();
@@ -65,23 +64,37 @@ namespace EnvironmentManager
         {
             foreach(string path in directoryList)
             {
+                bool writeLine = !Directory.Exists(path);
                 DirectoryInfo d = Directory.CreateDirectory(path);
-                Console.WriteLine("Created {0}.", d.FullName);
+
+                if (writeLine)
+                    Console.WriteLine("Created {0}.", d.FullName);
             }
         }
 
-        //static void ScanDirectories(ArrayList directoryList)
-        //{
-        //    foreach (string path in directoryList)
-        //    {
-        //        DirectoryInfo d = new DirectoryInfo(path);
+        static void ScanDirectories (ArrayList directoryList)
+        {
+            using (SqlConnection connection = new SqlConnection(Resources.ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
 
-        //        string updateQuery = $"UPDATE Integration.DataSets SET Path = {path} WHERE Name = {d.Name}";
-                
+                foreach (string path in directoryList)
+                {
+                    string[] files = Directory.GetFiles(path);
+                    if (files.Length > 0)
+                    {
+                        DirectoryInfo d = new DirectoryInfo(path);
+                        string updateQuery = $"UPDATE Integration.DataSets SET Path = '{files[0]}' WHERE Name = '{d.Name}'";
 
+                        Console.WriteLine("Found file {0}.", files[0]);
 
-        //        Console.WriteLine("Created {0}.", d.FullName);
-        //    }
-        //}
+                        command.CommandText = updateQuery;
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
     }
 }

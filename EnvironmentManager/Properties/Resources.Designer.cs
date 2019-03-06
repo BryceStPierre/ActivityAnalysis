@@ -61,6 +61,15 @@ namespace EnvironmentManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data Source=localhost;Initial Catalog=ActivityMeta_DEV;Trusted_Connection=True.
+        /// </summary>
+        internal static string ConnectionString {
+            get {
+                return ResourceManager.GetString("ConnectionString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT Root, Year, Month, Name FROM Environment.Directories.
         /// </summary>
         internal static string DirectoriesQuery {
