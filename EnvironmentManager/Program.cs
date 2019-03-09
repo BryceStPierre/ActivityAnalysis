@@ -14,20 +14,20 @@ namespace EnvironmentManager
         {
             Console.WriteLine("----------------------------------------");
             Console.WriteLine(" Activity Analysis: Environment Manager ");
-            Console.WriteLine("----------------------------------------");
+            Console.WriteLine("----------------------------------------\n");
             Thread.Sleep(1000);
 
             // Verify the directories are created.
             Console.WriteLine("Verifying directories are created...");
             ArrayList directories = VerifyDirectories();
-            Console.WriteLine("Finished verifying directories.");
+            Console.WriteLine("Finished verifying directories.\n");
 
             // Scan the directories for dataset files.
             Console.WriteLine("Scanning directories...");
             ScanDirectories(directories);
-            Console.WriteLine("Finished scanning directories.");
+            Console.WriteLine("Finished scanning directories.\n");
 
-            Thread.Sleep(4000);
+            Thread.Sleep(5000);
             Environment.Exit(0);
         }
 
