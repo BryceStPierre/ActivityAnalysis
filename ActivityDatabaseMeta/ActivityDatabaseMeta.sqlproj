@@ -63,6 +63,8 @@
     <Folder Include="Integration\Tables" />
     <Folder Include="Environment\Tables" />
     <Folder Include="Environment\Views" />
+    <Folder Include="Scripts" />
+    <Folder Include="Environment\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\Environment.sql" />
@@ -71,5 +73,7 @@
     <Build Include="Integration\Tables\DataSources.sql" />
     <Build Include="Environment\Tables\Locations.sql" />
     <Build Include="Environment\Views\Directories.sql" />
+    <None Include="Scripts\PopulateLocations.sql" />
+    <Build Include="Environment\Stored Procedures\UpdatePathDirectories.sql" />
   </ItemGroup>
 </Project>
