@@ -70,11 +70,20 @@ namespace EnvironmentManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT Root, Year, Month, Name FROM Environment.Directories.
+        ///   Looks up a localized string similar to EXEC [Environment].[UpdatePathWithDirectory].
         /// </summary>
-        internal static string DirectoriesQuery {
+        internal static string UpdatePathWithDirectoryQuery {
             get {
-                return ResourceManager.GetString("DirectoriesQuery", resourceCulture);
+                return ResourceManager.GetString("UpdatePathWithDirectoryQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE [Integration].[DataSets] SET Path = &apos;1&apos; WHERE CONCAT(DataSource, Name) = &apos;2&apos;.
+        /// </summary>
+        internal static string UpdatePathWithFileQuery {
+            get {
+                return ResourceManager.GetString("UpdatePathWithFileQuery", resourceCulture);
             }
         }
     }

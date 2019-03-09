@@ -74,6 +74,6 @@
     <Build Include="Environment\Tables\Locations.sql" />
     <Build Include="Environment\Views\Directories.sql" />
     <None Include="Scripts\PopulateLocations.sql" />
-    <Build Include="Environment\Stored Procedures\UpdatePathDirectories.sql" />
+    <Build Include="Environment\Stored Procedures\UpdatePathWithDirectory.sql" />
   </ItemGroup>
 </Project>

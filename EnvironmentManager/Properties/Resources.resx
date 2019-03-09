@@ -120,7 +120,10 @@
   <data name="ConnectionString" xml:space="preserve">
     <value>Data Source=localhost;Initial Catalog=ActivityMeta_DEV;Trusted_Connection=True</value>
   </data>
-  <data name="DirectoriesQuery" xml:space="preserve">
-    <value>SELECT Root, Year, Month, Name FROM Environment.Directories</value>
+  <data name="UpdatePathWithDirectoryQuery" xml:space="preserve">
+    <value>EXEC [Environment].[UpdatePathWithDirectory]</value>
+  </data>
+  <data name="UpdatePathWithFileQuery" xml:space="preserve">
+    <value>UPDATE [Integration].[DataSets] SET Path = '1' WHERE CONCAT(DataSource, Name) = '2'</value>
   </data>
 </root>

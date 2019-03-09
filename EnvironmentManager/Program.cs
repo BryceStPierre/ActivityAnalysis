@@ -12,67 +12,57 @@ namespace EnvironmentManager
     {
         static void Main (string[] args)
         {
-            //if (args.Length < 1)
-            //{
-            //    Console.WriteLine("You must provide the name of the meta database.");
-            //    Thread.Sleep(5000);
-            //    Environment.Exit(-1);
-            //}
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine(" Activity Analysis: Environment Manager ");
+            Console.WriteLine("----------------------------------------");
+            Thread.Sleep(1000);
 
-            ArrayList directoryList = GetDirectoryList();
-            //CreateDirectories(directoryList);
+            // Verify the directories are created.
+            Console.WriteLine("Verifying directories are created...");
+            ArrayList directories = VerifyDirectories();
+            Console.WriteLine("Finished verifying directories.");
 
-            ScanDirectories(directoryList);
+            // Scan the directories for dataset files.
+            Console.WriteLine("Scanning directories...");
+            ScanDirectories(directories);
+            Console.WriteLine("Finished scanning directories.");
 
-            Thread.Sleep(5000);
+            Thread.Sleep(4000);
             Environment.Exit(0);
         }
 
-        static ArrayList GetDirectoryList ()
+        static ArrayList VerifyDirectories ()
         {
             using (SqlConnection connection = new SqlConnection(Resources.ConnectionString))
             {
                 connection.Open();
-                ArrayList directoryList = new ArrayList();
-                SqlCommand command = new SqlCommand(Resources.DirectoriesQuery, connection);
+                ArrayList directories = new ArrayList();
+                SqlCommand command = new SqlCommand(Resources.UpdatePathWithDirectoryQuery, connection);
                 SqlDataReader reader = command.ExecuteReader();
                 try
                 {
                     while (reader.Read())
                     {
                         string path = String.Format("{0}", reader[0]);
-                        string year = String.Format("{0}", reader[1]);
-                        string month = String.Format("{0}", reader[2]);
-                        string name = String.Format("{0}", reader[3]);
 
-                        path = Path.Join(path, year);
-                        path = Path.Join(path, month);
-                        path = Path.Join(path, name);
+                        bool writeLine = !Directory.Exists(path);
+                        DirectoryInfo d = Directory.CreateDirectory(path);
 
-                        directoryList.Add(path);
+                        if (writeLine)
+                            Console.WriteLine("Created directory: {0}.", d.FullName);
+
+                        directories.Add(path);
                     }
                 }
                 finally
                 {
                     reader.Close();
                 }
-                return directoryList;
+                return directories;
             }
         }
 
-        static void CreateDirectories (ArrayList directoryList)
-        {
-            foreach(string path in directoryList)
-            {
-                bool writeLine = !Directory.Exists(path);
-                DirectoryInfo d = Directory.CreateDirectory(path);
-
-                if (writeLine)
-                    Console.WriteLine("Created {0}.", d.FullName);
-            }
-        }
-
-        static void ScanDirectories (ArrayList directoryList)
+        static void ScanDirectories (ArrayList directories)
         {
             using (SqlConnection connection = new SqlConnection(Resources.ConnectionString))
             {
@@ -80,18 +70,23 @@ namespace EnvironmentManager
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
 
-                foreach (string path in directoryList)
+                foreach (string path in directories)
                 {
                     string[] files = Directory.GetFiles(path);
+
                     if (files.Length > 0)
                     {
-                        DirectoryInfo d = new DirectoryInfo(path);
-                        string updateQuery = $"UPDATE Integration.DataSets SET Path = '{files[0]}' WHERE Name = '{d.Name}'";
+                        string filePath = files[0];
+                        DirectoryInfo info = new DirectoryInfo(path);
+                        string dataSetName = info.Name;
 
-                        Console.WriteLine("Found file {0}.", files[0]);
-
-                        command.CommandText = updateQuery;
+                        string baseQuery = Resources.UpdatePathWithFileQuery;
+                        string query = baseQuery.Replace("1", filePath);
+                        query = query.Replace("2", dataSetName);
+                        
+                        command.CommandText = query;
                         command.ExecuteNonQuery();
+                        Console.WriteLine("Found {0} data set: {1}.", dataSetName, filePath);
                     }
                 }
             }
