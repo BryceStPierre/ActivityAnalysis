@@ -59,5 +59,41 @@ namespace DataSetManager.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data Source=localhost;Initial Catalog=ActivityAnalysisMeta;Trusted_Connection=True.
+        /// </summary>
+        internal static string ConnectionString {
+            get {
+                return ResourceManager.GetString("ConnectionString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT Value FROM dbo.Constants WHERE Name = &apos;DataDirectory&apos;.
+        /// </summary>
+        internal static string DataDirectoryQuery {
+            get {
+                return ResourceManager.GetString("DataDirectoryQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT CONCAT(DataSource, Name) As FolderName FROM Integration.DataSets.
+        /// </summary>
+        internal static string DirectoriesQuery {
+            get {
+                return ResourceManager.GetString("DirectoriesQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXEC Integration.UpdateDataSetPath @DataSetName = &apos;1&apos;, @Path = &apos;2&apos;.
+        /// </summary>
+        internal static string UpdateDataSetPathQuery {
+            get {
+                return ResourceManager.GetString("UpdateDataSetPathQuery", resourceCulture);
+            }
+        }
     }
 }

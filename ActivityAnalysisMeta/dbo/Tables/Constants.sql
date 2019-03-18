@@ -1,8 +1,7 @@
-﻿CREATE TABLE [Environment].[Locations]
-(
+﻿CREATE TABLE [dbo].[Constants] (
 	[Id] INT IDENTITY(1,1) PRIMARY KEY,
 	[Name] VARCHAR(20) NOT NULL,
-	[Path] VARCHAR(250) NOT NULL, 
+	[Value] VARCHAR(250) NOT NULL, 
     [Updated] DATETIME NOT NULL DEFAULT GETDATE(), 
     [Created] DATETIME NOT NULL DEFAULT GETDATE()
 )
