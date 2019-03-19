@@ -11,18 +11,18 @@ namespace DataSetManager
 {
     class Program
     {
+        const string ACTIVE = "__Active";
+        const string ARCHIVE = "__Archive";
+
+        static string dataPath;
+        static string activePath;
+        static string archivePath;
+
         static void Main (string[] args)
         {
-            const string ACTIVE = "__Active";
-            const string ARCHIVE = "__Archive";
-
-            string dataPath;
-            string activePath;
-            string archivePath;
-
-            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            Console.WriteLine("Activity Analysis: Data Set Manager");
-            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Console.WriteLine(" Activity Analysis: Data Set Manager ");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
             // Get data directory path, and ensure it's created.
             ArrayList qDataDirectory = ExecuteReader(Resources.DataDirectoryQuery);
@@ -34,81 +34,117 @@ namespace DataSetManager
             }
 
             dataPath = (string)qDataDirectory[0];
-            Console.WriteLine("Data set directory: {0}", dataPath);
-
             activePath = Path.Join(dataPath, ACTIVE);
             archivePath = Path.Join(dataPath, ARCHIVE);
-
+            
             Directory.CreateDirectory(activePath);
-            Console.WriteLine("Active data set directory: {0}", activePath);
             Directory.CreateDirectory(archivePath);
+            
+            Console.WriteLine("Data set directory: {0}", dataPath);
+            Console.WriteLine("Active data set directory: {0}", activePath);
             Console.WriteLine("Archive data set directory: {0}\n", archivePath);
 
-            string YN = "";
-            while (!YN.Equals("y") && !YN.Equals("Y") && !YN.Equals("n") && !YN.Equals("N"))
+            bool loadDataSets = InputYesOrNo("Would you like to load new data sets?");
+            if (loadDataSets)
             {
-                Console.Write("Would you like to archive the active data sets, and reset? (y/n): ");
-                YN = Console.ReadLine();
+                ArchiveDataSets();
+                LoadDataSets();
+                Exit(0);
             }
 
-            bool archiveDataSets = YN.Equals("y") || YN.Equals("Y");
-            // Archive current data sets in active directory, then clear it.
-            if (archiveDataSets)
+            bool resetDataDirectory = InputYesOrNo("Would you like to reset the environment?");
+            if (resetDataDirectory)
             {
-                List<string> allDirs = new List<string>(Directory.EnumerateDirectories(activePath));
-                foreach (string d in allDirs)
-                {
-                    DirectoryInfo di = new DirectoryInfo(d);
-                    string targetDirectory = Path.Join(archivePath, di.Name);
-                    //Console.WriteLine(targetDirectory);
-                    Directory.CreateDirectory(targetDirectory);
-
-                    List<string> allFiles = new List<string>(Directory.EnumerateFiles(d));
-                    foreach (string f in allFiles)
-                    {
-                        FileInfo fi = new FileInfo(f);
-                        string targetFileName = fi.Name.Replace(fi.Extension, "") + "_" + DateTime.Now.ToShortDateString() + fi.Extension;
-                        string targetPath = Path.Join(targetDirectory, targetFileName);
-
-                        File.Copy(f, targetPath, true);
-                        Console.WriteLine("Archived file: {0}", targetPath);
-                    }
-
-                    Console.WriteLine("To be deleted: {0}", d);
-                    Directory.Delete(d, true);
-                }
-                Console.WriteLine("Data has been archived.");
-
-                // Delete folders and files in main data folder.
-                allDirs = new List<string>(Directory.EnumerateDirectories(dataPath));
-                foreach (string d in allDirs)
-                {
-                    DirectoryInfo di = new DirectoryInfo(d);
-                    if (!di.Name.Equals(ACTIVE) && !di.Name.Equals(ARCHIVE))
-                    {
-                        Directory.Delete(d, true);
-                    }
-                }
-
-                ArrayList qDirectories = ExecuteReader(Resources.DirectoriesQuery);
-            }
-
-            YN = "";
-            while (!YN.Equals("y") && !YN.Equals("Y") && !YN.Equals("n") && !YN.Equals("N"))
-            {
-                Console.Write("Would you like to load new data sets? (y/n): ");
-                YN = Console.ReadLine();
-            }
-
-            bool loadNewDataSets = YN.Equals("y") || YN.Equals("Y");
-            //
-            if (loadNewDataSets)
-            {
-
+                ResetDataDirectory();
             }
 
             // Exit program successfully.
             Exit(0);
+        }
+
+        static void LoadDataSets ()
+        {
+            List<string> allDirs = new List<string>(Directory.EnumerateDirectories(dataPath));
+            allDirs.Remove(Path.Join(dataPath, ACTIVE));
+            allDirs.Remove(Path.Join(dataPath, ARCHIVE));
+
+            foreach (string d in allDirs)
+            {
+                DirectoryInfo di = new DirectoryInfo(d);
+                string targetPath = Path.Join(activePath, di.Name);
+                Directory.CreateDirectory(Path.Join(activePath, di.Name));
+
+                List<string> allFiles = new List<string>(Directory.EnumerateFiles(d));
+                foreach (string f in allFiles)
+                {
+                    FileInfo fi = new FileInfo(f);
+                    string targetFile = Path.Join(targetPath, fi.Name);
+                    File.Copy(f, targetFile, true);
+
+                    string query = Resources.UpdateDataSetPathQuery.Replace("1", fi.Directory.Name);
+                    query = query.Replace("2", targetFile);
+                    ExecuteNonQuery(query);
+                }
+            }
+        }
+        
+        static void ResetDataDirectory ()
+        {
+            // Delete folders and files in main data folder.
+            List<string> allDirs = new List<string>(Directory.EnumerateDirectories(dataPath));
+            allDirs.Remove(Path.Join(dataPath, ACTIVE));
+            allDirs.Remove(Path.Join(dataPath, ARCHIVE));
+            foreach (string d in allDirs)
+            {
+                Directory.Delete(d, true);
+                Console.WriteLine("Deleted directory: {0}", d);
+            }
+
+            ArrayList qDirectories = ExecuteReader(Resources.DirectoriesQuery);
+            foreach (string d in qDirectories)
+            {
+                string path = Path.Join(dataPath, d);
+                Directory.CreateDirectory(path);
+                Console.WriteLine("Created source directory: {0}", path);
+            }
+        }
+
+        static void ArchiveDataSets ()
+        {
+            List<string> allDirs = new List<string>(Directory.EnumerateDirectories(activePath));
+            foreach (string d in allDirs)
+            {
+                DirectoryInfo di = new DirectoryInfo(d);
+                string targetDirectory = Path.Join(archivePath, di.Name);
+                //Console.WriteLine(targetDirectory);
+                Directory.CreateDirectory(targetDirectory);
+
+                List<string> allFiles = new List<string>(Directory.EnumerateFiles(d));
+                foreach (string f in allFiles)
+                {
+                    FileInfo fi = new FileInfo(f);
+                    string targetFileName = fi.Name.Replace(fi.Extension, "") + "_" + DateTime.Now.ToShortDateString() + fi.Extension;
+                    string targetPath = Path.Join(targetDirectory, targetFileName);
+
+                    File.Copy(f, targetPath, true);
+                    Console.WriteLine("Archived file: {0}", targetPath);
+                }
+
+                Console.WriteLine("To be deleted: {0}", d);
+                Directory.Delete(d, true);
+            }
+            Console.WriteLine("Data has been archived.");
+        }
+
+        static bool InputYesOrNo (string message)
+        {
+            string response = "";
+            while (!response.Equals("y") && !response.Equals("Y") && !response.Equals("n") && !response.Equals("N"))
+            {
+                Console.Write("{0} (y/n): ", message);
+                response = Console.ReadLine();
+            }
+            return response.Equals("y") || response.Equals("Y");
         }
 
         static ArrayList ExecuteReader (string query)
@@ -168,69 +204,5 @@ namespace DataSetManager
             Thread.Sleep(5000);
             Environment.Exit(code);
         }
-
-        /*
-         * static ArrayList VerifyDirectories ()
-        {
-            using (SqlConnection connection = new SqlConnection(Resources.ConnectionString))
-            {
-                connection.Open();
-                ArrayList directories = new ArrayList();
-                SqlCommand command = new SqlCommand(Resources.UpdatePathWithDirectoryQuery, connection);
-                SqlDataReader reader = command.ExecuteReader();
-                try
-                {
-                    while (reader.Read())
-                    {
-                        string path = String.Format("{0}", reader[0]);
-
-                        bool writeLine = !Directory.Exists(path);
-                        DirectoryInfo d = Directory.CreateDirectory(path);
-
-                        if (writeLine)
-                            Console.WriteLine("Created directory: {0}.", d.FullName);
-
-                        directories.Add(path);
-                    }
-                }
-                finally
-                {
-                    reader.Close();
-                }
-                return directories;
-            }
-        }
-
-        static void ScanDirectories (ArrayList directories)
-        {
-            using (SqlConnection connection = new SqlConnection(Resources.ConnectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand();
-                command.Connection = connection;
-
-                foreach (string path in directories)
-                {
-                    string[] files = Directory.GetFiles(path);
-
-                    if (files.Length > 0)
-                    {
-                        string filePath = files[0];
-                        DirectoryInfo info = new DirectoryInfo(path);
-                        string dataSetName = info.Name;
-
-                        string baseQuery = Resources.UpdatePathWithFileQuery;
-                        string query = baseQuery.Replace("1", filePath);
-                        query = query.Replace("2", dataSetName);
-                        
-                        command.CommandText = query;
-                        command.ExecuteNonQuery();
-                        Console.WriteLine("Found {0} data set: {1}.", dataSetName, filePath);
-                    }
-                }
-            }
-        }
-         * 
-         * */
     }
 }
