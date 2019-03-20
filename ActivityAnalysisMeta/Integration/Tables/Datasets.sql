@@ -4,6 +4,7 @@
 	[DataSource] VARCHAR(20) NOT NULL, 
     [Name] VARCHAR(75) NOT NULL,
     [Label] VARCHAR(75) NOT NULL,
+	[Type] VARCHAR(10) NOT NULL,
 	[Description] VARCHAR(250) NULL,
 	[Path] VARCHAR(250) NULL,
 	[Updated] DATETIME NOT NULL DEFAULT GETDATE(), 

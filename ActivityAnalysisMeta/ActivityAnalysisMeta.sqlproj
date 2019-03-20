@@ -71,9 +71,9 @@
     <Build Include="Integration\Tables\DataSources.sql" />
     <None Include="Scripts\PopulateConstants.sql" />
     <Build Include="Security\Integration.sql" />
-    <Build Include="Integration\Views\DataSetMappings.sql" />
     <Build Include="dbo\Tables\Constants.sql" />
     <Build Include="Integration\Stored Procedures\UpdateDataSetPath.sql" />
+    <Build Include="Integration\Views\CsvDataSets.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\PopulateDataSources.sql" />

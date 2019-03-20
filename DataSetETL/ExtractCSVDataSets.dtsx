@@ -1,0 +1,605 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/16/2019 7:49:03 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BRYCE-DESKTOP"
+  DTS:CreatorName="BRYCE-DESKTOP\bryce"
+  DTS:DTSID="{1431A7A2-6FA3-4BC9-948B-041A8AB08EF6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="4105"
+  DTS:ObjectName="ExtractCSVDataSets"
+  DTS:PackageType="5"
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{7D5B2B83-4604-49E8-9B41-E284B4B552E5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CsvDataSetFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{8179AE60-EB2D-46D7-80BF-A836145E7F19}"
+      DTS:ObjectName="CsvDataSetFile">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::sPath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="4105"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\bryce\Data\__Active\ApplePodcasts\Your Podcasts.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;Feed URL&quot;"
+              DTS:DTSID="{C73BADCD-A3D8-448D-9C47-1ED964327AA4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;Episode ID&quot;"
+              DTS:DTSID="{987010E2-3C7C-4155-9801-1064B57D8442}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Visible?"
+              DTS:DTSID="{4BEB009F-5B70-425B-9271-FC6014261C6A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;Marked as played on&quot;"
+              DTS:DTSID="{85989CE2-1C57-4045-9B3B-C7A7437CBB8E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;Manually set&quot;"
+              DTS:DTSID="{EF7D94BC-2416-49B4-965E-AA6B6AA45BBD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;Is New?&quot;"
+              DTS:DTSID="{001E568B-38CF-4CAE-843E-240001E48813}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;Last played on&quot;"
+              DTS:DTSID="{39D0BDFA-5789-4CA5-BAF5-B6291681D1AA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;Playback position&quot;"
+              DTS:DTSID="{90D14598-720E-48DF-BE5F-E5AAD5FF6D88}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;Play count&quot;"
+              DTS:DTSID="{9D745656-5A17-4990-8759-22225DDC16B1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="&quot;Has been played?&quot;"
+              DTS:DTSID="{91BC148E-64C7-4B4E-92EE-0E2C31CFD5C4}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{D24EEB3A-6F86-4972-8024-A7E014FF2813}"
+      DTS:ObjectName="sMetaTable">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Integration.CsvDataSets</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E2345A39-322D-4D2F-B987-994C5FDF0C24}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="oDataSetEnum">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8436DFED-CDDE-4ECA-8335-542B46FF6A8B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\bryce\Data\__Active\ApplePodcasts\Your Podcasts.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{209F7A43-7DBA-422C-8EDC-8A446F85B918}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Source.ApplePodcasts</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Get CSV Data Sets"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C7CFE874-EDA1-4D3E-A3ED-6F6AEF6936CC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Get CSV Data Sets"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLEDB - Get Data Set Paths"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable">$Package::sMetaTable</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable">$Package::sMetaTable</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Connections[OleDbConnection]"
+                  connectionManagerID="{65318118-723F-4ED1-B3A8-7DE89543E6D1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MetaRdbOle]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].Columns[Path]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].ExternalColumns[Path]"
+                      length="250"
+                      lineageId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].Columns[Path]"
+                      name="Path"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].Columns[SourceTable]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].ExternalColumns[SourceTable]"
+                      length="102"
+                      lineageId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].Columns[SourceTable]"
+                      name="SourceTable"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].ExternalColumns[Path]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="Path" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].ExternalColumns[SourceTable]"
+                      codePage="1252"
+                      dataType="str"
+                      length="102"
+                      name="SourceTable" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Error Output].Columns[Path]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      lineageId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Error Output].Columns[Path]"
+                      name="Path" />
+                    <outputColumn
+                      refId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Error Output].Columns[SourceTable]"
+                      codePage="1252"
+                      dataType="str"
+                      length="102"
+                      lineageId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Error Output].Columns[SourceTable]"
+                      name="SourceTable" />
+                    <outputColumn
+                      refId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Get CSV Data Sets\RSDST - Data Set Enum"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="RSDST - Data Set Enum">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::oDataSetEnum</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Get CSV Data Sets\RSDST - Data Set Enum.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Get CSV Data Sets\RSDST - Data Set Enum.Inputs[Recordset Destination Input].Columns[Path]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="Path"
+                      lineageId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].Columns[Path]" />
+                    <inputColumn
+                      refId="Package\DFT Get CSV Data Sets\RSDST - Data Set Enum.Inputs[Recordset Destination Input].Columns[SourceTable]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="102"
+                      cachedName="SourceTable"
+                      lineageId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].Columns[SourceTable]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Get CSV Data Sets.Paths[OLE DB Source Output]"
+              endId="Package\DFT Get CSV Data Sets\RSDST - Data Set Enum.Inputs[Recordset Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FELC - CSV Data Set"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{7FEAEB54-F437-4E94-8D3C-6320AE7503F0}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FELC - CSV Data Set">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{ED2AF12E-D674-4B09-8A08-B733527815AE}"
+        DTS:ObjectName="{ED2AF12E-D674-4B09-8A08-B733527815AE}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::oDataSetEnum" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FELC - CSV Data Set\BULK - Extract CSV Data"
+          DTS:CreationName="Microsoft.BulkInsertTask"
+          DTS:Description="Bulk Insert Task"
+          DTS:DTSID="{58B05001-59E4-478F-B680-1BA58A993DC1}"
+          DTS:ExecutableType="Microsoft.BulkInsertTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="BULK - Extract CSV Data"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="DestinationTableName">@[User::sSourceTable]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <BulkInsertTask:BulkInsertTaskData
+              BulkInsertTask:CodePage="1252"
+              BulkInsertTask:SourceConnectionName="{8179AE60-EB2D-46D7-80BF-A836145E7F19}"
+              BulkInsertTask:DestinationConnectionName="{6C0836B1-215D-4017-B967-ACF7260B0AB7}"
+              BulkInsertTask:DestinationTableName="Source.ApplePodcasts"
+              BulkInsertTask:FirstRow="2"
+              BulkInsertTask:UseFormatFile="True"
+              BulkInsertTask:KeepNulls="True"
+              BulkInsertTask:FieldTerminator="Comma {,}"
+              BulkInsertTask:RowTerminator="{LF}" xmlns:BulkInsertTask="www.microsoft.com/sqlserver/dts/tasks/bulkinserttask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\FELC - CSV Data Set\SQL - Truncate Source Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F700109D-6FE2-4B00-A535-9218DDAEB1DE}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - Truncate Source Table"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"TRUNCATE TABLE " +  @[User::sSourceTable]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6C0836B1-215D-4017-B967-ACF7260B0AB7}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE Source.ApplePodcasts" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\FELC - CSV Data Set.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{49460782-B0D9-4A27-92AB-BF3BCFDEC713}"
+          DTS:From="Package\FELC - CSV Data Set\SQL - Truncate Source Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\FELC - CSV Data Set\BULK - Extract CSV Data" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{ED56133B-F03F-4E2F-8E83-98F8BCDC7121}"
+          DTS:ObjectName="{ED56133B-F03F-4E2F-8E83-98F8BCDC7121}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::sPath" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{2BC33B1F-3A47-43AA-AC88-BC15F668F34D}"
+          DTS:ObjectName="{2BC33B1F-3A47-43AA-AC88-BC15F668F34D}"
+          DTS:ValueIndex="1"
+          DTS:VariableName="User::sSourceTable" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{677B7B64-293D-4CA6-BB68-F80A057014FE}"
+      DTS:From="Package\DFT Get CSV Data Sets"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\FELC - CSV Data Set" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="198,43"
+          Id="Package\DFT Get CSV Data Sets"
+          TopLeft="86,33" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\FELC - CSV Data Set\BULK - Extract CSV Data"
+          TopLeft="25,91" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\FELC - CSV Data Set\SQL - Truncate Source Table"
+          TopLeft="24,24" />
+        <EdgeLayout
+          Id="Package\FELC - CSV Data Set.PrecedenceConstraints[Constraint]"
+          TopLeft="135.5,66">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25"
+              Start="0,0"
+              End="0,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="270,156"
+          Size="270,199"
+          Id="Package\FELC - CSV Data Set"
+          TopLeft="52,105" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="186,76">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Get CSV Data Sets">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="220,42"
+          Id="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths"
+          TopLeft="40.5,37" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\DFT Get CSV Data Sets\RSDST - Data Set Enum"
+          TopLeft="40.5,115" />
+        <EdgeLayout
+          Id="Package\DFT Get CSV Data Sets.Paths[OLE DB Source Output]"
+          TopLeft="150.5,79">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
