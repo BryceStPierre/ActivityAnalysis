@@ -65,15 +65,16 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\Tables" />
     <Folder Include="Integration\Stored Procedures" />
+    <Folder Include="Security\Schemas" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Integration\Tables\DataSets.sql" />
     <Build Include="Integration\Tables\DataSources.sql" />
     <None Include="Scripts\PopulateConstants.sql" />
-    <Build Include="Security\Integration.sql" />
     <Build Include="dbo\Tables\Constants.sql" />
     <Build Include="Integration\Stored Procedures\UpdateDataSetPath.sql" />
     <Build Include="Integration\Views\CsvDataSets.sql" />
+    <Build Include="Security\Schemas\Integration.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\PopulateDataSources.sql" />

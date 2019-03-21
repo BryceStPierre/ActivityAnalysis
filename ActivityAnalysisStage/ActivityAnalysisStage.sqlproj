@@ -59,10 +59,20 @@
     <Folder Include="Properties" />
     <Folder Include="Security" />
     <Folder Include="Source" />
+    <Folder Include="Source\Tables" />
+    <Folder Include="Security\Schemas" />
+    <Folder Include="Stage" />
+    <Folder Include="Stage\Tables" />
+    <Folder Include="Stage\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Security\Source.sql" />
-    <Build Include="Source\ApplePodcastHistory.sql" />
-    <Build Include="Source\ApplePodcasts.sql" />
+    <Build Include="Source\Tables\ApplePodcastHistory.sql" />
+    <Build Include="Source\Tables\ApplePodcasts.sql" />
+    <Build Include="Security\Schemas\Stage.sql" />
+    <Build Include="Security\Schemas\Source.sql" />
+    <Build Include="Stage\Tables\ApplePodcastHistory.sql" />
+    <Build Include="Stage\Tables\ApplePodcasts.sql" />
+    <Build Include="Stage\Stored Procedures\LoadApplePodcastHistory.sql" />
+    <Build Include="Stage\Stored Procedures\LoadApplePodcasts.sql" />
   </ItemGroup>
 </Project>

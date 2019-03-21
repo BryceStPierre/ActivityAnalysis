@@ -11,15 +11,15 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="ExtractCSVDataSets"
   DTS:PackageType="5"
-  DTS:VersionBuild="43"
-  DTS:VersionGUID="{7D5B2B83-4604-49E8-9B41-E284B4B552E5}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{27E188DA-8F9D-4BC6-A4F9-30AACD5778B3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[CsvDataSetFile]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{8179AE60-EB2D-46D7-80BF-A836145E7F19}"
+      DTS:DTSID="{65A005ED-1595-4C29-95D8-9EE01C112880}"
       DTS:ObjectName="CsvDataSetFile">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">@[User::sPath]</DTS:PropertyExpression>
@@ -30,7 +30,7 @@
           DTS:HeaderRowDelimiter="_x000D__x000A_"
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
-          DTS:TextQualifier="_x0022_"
+          DTS:TextQualifier="_x0022__x0022_"
           DTS:CodePage="1252"
           DTS:ConnectionString="C:\Users\bryce\Data\__Active\ApplePodcasts\Your Podcasts.csv">
           <DTS:FlatFileColumns>
@@ -40,8 +40,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="&quot;Feed URL&quot;"
-              DTS:DTSID="{C73BADCD-A3D8-448D-9C47-1ED964327AA4}"
+              DTS:ObjectName="Feed URL"
+              DTS:DTSID="{5D7B5E17-3678-400D-B83E-1129075AFA9A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -49,8 +49,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="&quot;Episode ID&quot;"
-              DTS:DTSID="{987010E2-3C7C-4155-9801-1064B57D8442}"
+              DTS:ObjectName="Episode ID"
+              DTS:DTSID="{BCC56FB9-30C5-45B7-BF3D-3578E51E47B1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -59,7 +59,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Visible?"
-              DTS:DTSID="{4BEB009F-5B70-425B-9271-FC6014261C6A}"
+              DTS:DTSID="{FAB02B5B-BAC8-4D34-B551-891EEBCA2656}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -67,8 +67,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="&quot;Marked as played on&quot;"
-              DTS:DTSID="{85989CE2-1C57-4045-9B3B-C7A7437CBB8E}"
+              DTS:ObjectName="Marked as played on"
+              DTS:DTSID="{3E1819BE-1FD2-4D3E-BCD9-BA8F597D9555}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -76,8 +76,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="&quot;Manually set&quot;"
-              DTS:DTSID="{EF7D94BC-2416-49B4-965E-AA6B6AA45BBD}"
+              DTS:ObjectName="Manually set"
+              DTS:DTSID="{050397E1-3DF4-4079-8185-30811D3DCD37}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -85,8 +85,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="&quot;Is New?&quot;"
-              DTS:DTSID="{001E568B-38CF-4CAE-843E-240001E48813}"
+              DTS:ObjectName="Is New?"
+              DTS:DTSID="{35285DCB-0519-4DE6-A1DB-F0AD57656F2E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -94,8 +94,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="&quot;Last played on&quot;"
-              DTS:DTSID="{39D0BDFA-5789-4CA5-BAF5-B6291681D1AA}"
+              DTS:ObjectName="Last played on"
+              DTS:DTSID="{116CAFAF-983E-4DC7-8B48-CE9856A7C550}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -103,8 +103,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="&quot;Playback position&quot;"
-              DTS:DTSID="{90D14598-720E-48DF-BE5F-E5AAD5FF6D88}"
+              DTS:ObjectName="Playback position"
+              DTS:DTSID="{4A01A0DD-128A-45E8-95FF-33BB0310CD53}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -112,8 +112,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="&quot;Play count&quot;"
-              DTS:DTSID="{9D745656-5A17-4990-8759-22225DDC16B1}"
+              DTS:ObjectName="Play count"
+              DTS:DTSID="{FE986553-CD3D-4B35-BC9E-E3F3F68F44A4}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -121,8 +121,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="&quot;Has been played?&quot;"
-              DTS:DTSID="{91BC148E-64C7-4B4E-92EE-0E2C31CFD5C4}"
+              DTS:ObjectName="Has been played?"
+              DTS:DTSID="{8E91AF36-930D-4757-9DDE-2900ABDF39D8}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -411,12 +411,14 @@
             DTS:Name="DestinationTableName">@[User::sSourceTable]</DTS:PropertyExpression>
           <DTS:ObjectData>
             <BulkInsertTask:BulkInsertTaskData
+              BulkInsertTask:CheckConstraints="False"
               BulkInsertTask:CodePage="1252"
-              BulkInsertTask:SourceConnectionName="{8179AE60-EB2D-46D7-80BF-A836145E7F19}"
+              BulkInsertTask:SourceConnectionName="{65A005ED-1595-4C29-95D8-9EE01C112880}"
               BulkInsertTask:DestinationConnectionName="{6C0836B1-215D-4017-B967-ACF7260B0AB7}"
               BulkInsertTask:DestinationTableName="Source.ApplePodcasts"
               BulkInsertTask:FirstRow="2"
               BulkInsertTask:UseFormatFile="True"
+              BulkInsertTask:TableLock="True"
               BulkInsertTask:KeepNulls="True"
               BulkInsertTask:FieldTerminator="Comma {,}"
               BulkInsertTask:RowTerminator="{LF}" xmlns:BulkInsertTask="www.microsoft.com/sqlserver/dts/tasks/bulkinserttask" />
@@ -559,15 +561,15 @@
     design-time-name="Package\DFT Get CSV Data Sets">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="220,42"
-          Id="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths"
-          TopLeft="40.5,37" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="220,42"
           Id="Package\DFT Get CSV Data Sets\RSDST - Data Set Enum"
           TopLeft="40.5,115" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\DFT Get CSV Data Sets\OLEDB - Get Data Set Paths"
+          TopLeft="40.5,37" />
         <EdgeLayout
           Id="Package\DFT Get CSV Data Sets.Paths[OLE DB Source Output]"
           TopLeft="150.5,79">
@@ -587,7 +589,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
