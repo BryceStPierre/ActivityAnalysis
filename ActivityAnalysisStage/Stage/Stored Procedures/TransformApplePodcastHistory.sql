@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [Stage].[LoadApplePodcastHistory]
+﻿CREATE PROCEDURE [Stage].[TransformApplePodcastHistory]
 AS
 	INSERT INTO [Stage].[ApplePodcastHistory] (
 		[FeedUrl],

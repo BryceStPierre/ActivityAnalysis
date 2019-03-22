@@ -72,7 +72,7 @@
     <Build Include="Security\Schemas\Source.sql" />
     <Build Include="Stage\Tables\ApplePodcastHistory.sql" />
     <Build Include="Stage\Tables\ApplePodcasts.sql" />
-    <Build Include="Stage\Stored Procedures\LoadApplePodcastHistory.sql" />
-    <Build Include="Stage\Stored Procedures\LoadApplePodcasts.sql" />
+    <Build Include="Stage\Stored Procedures\TransformApplePodcastHistory.sql" />
+    <Build Include="Stage\Stored Procedures\TransformApplePodcasts.sql" />
   </ItemGroup>
 </Project>

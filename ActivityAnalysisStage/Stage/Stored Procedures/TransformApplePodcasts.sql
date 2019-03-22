@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [Stage].[LoadApplePodcasts]
+﻿CREATE PROCEDURE [Stage].[TransformApplePodcasts]
 AS
 	TRUNCATE TABLE [Stage].[ApplePodcasts];
 
