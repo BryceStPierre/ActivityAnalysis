@@ -120,13 +120,13 @@
   <data name="ConnectionString" xml:space="preserve">
     <value>Data Source=localhost;Initial Catalog=ActivityAnalysisMeta;Trusted_Connection=True</value>
   </data>
-  <data name="DataDirectoryQuery" xml:space="preserve">
-    <value>SELECT Value FROM dbo.Constants WHERE Name = 'DataDirectory'</value>
-  </data>
   <data name="DirectoriesQuery" xml:space="preserve">
-    <value>SELECT CONCAT(DataSource, Name) As FolderName FROM Integration.DataSets</value>
+    <value>SELECT CONCAT(DataSource, Name) As DirectoryName FROM Integration.DataSets</value>
+  </data>
+  <data name="PathsQuery" xml:space="preserve">
+    <value>SELECT Value FROM Environment.Directories ORDER BY Id ASC</value>
   </data>
   <data name="UpdateDataSetPathQuery" xml:space="preserve">
-    <value>EXEC Integration.UpdateDataSetPath @DataSetName = '1', @Path = '2'</value>
+    <value>EXEC Environment.UpdateDataSetPath @DataSetName = '1', @PrePath = '2', @PostPath = '3'</value>
   </data>
 </root>

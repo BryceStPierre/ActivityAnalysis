@@ -70,16 +70,7 @@ namespace DataSetManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT Value FROM dbo.Constants WHERE Name = &apos;DataDirectory&apos;.
-        /// </summary>
-        internal static string DataDirectoryQuery {
-            get {
-                return ResourceManager.GetString("DataDirectoryQuery", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to SELECT CONCAT(DataSource, Name) As FolderName FROM Integration.DataSets.
+        ///   Looks up a localized string similar to SELECT CONCAT(DataSource, Name) As DirectoryName FROM Integration.DataSets.
         /// </summary>
         internal static string DirectoriesQuery {
             get {
@@ -88,7 +79,16 @@ namespace DataSetManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EXEC Integration.UpdateDataSetPath @DataSetName = &apos;1&apos;, @Path = &apos;2&apos;.
+        ///   Looks up a localized string similar to SELECT Value FROM Environment.Directories ORDER BY Id ASC.
+        /// </summary>
+        internal static string PathsQuery {
+            get {
+                return ResourceManager.GetString("PathsQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXEC Environment.UpdateDataSetPath @DataSetName = &apos;1&apos;, @PrePath = &apos;2&apos;, @PostPath = &apos;3&apos;.
         /// </summary>
         internal static string UpdateDataSetPathQuery {
             get {
