@@ -1,5 +1,7 @@
 ﻿CREATE VIEW [Integration].[CsvDataSets] AS 
 	SELECT
-		Path, CONCAT('Source.' + DataSource, Name) AS SourceTable
+		PrePath, 
+		PostPath,
+		CONCAT(CONCAT('Source.', DataSource), Name) AS SourceTable
 	FROM Integration.DataSets
-	WHERE Path IS NOT NULL AND Type = 'CSV';
+	WHERE PostPath IS NOT NULL AND Type = 'CSV';
