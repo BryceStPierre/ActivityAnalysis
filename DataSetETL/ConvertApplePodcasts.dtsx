@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="ConvertApplePodcasts"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{63EFD488-724D-4BC0-A03E-8C4509A41CDD}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{5A19BA38-A273-47E9-9900-E5282860C341}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -32,7 +32,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\bryce\Downloads\Your Podcasts.csv">
+          DTS:ConnectionString="C:\Users\bryce\Data\ApplePodcasts\Your Podcasts.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -135,7 +135,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\bryce\Desktop\Your Podcasts.txt">
+          DTS:ConnectionString="C:\Users\bryce\DataProcessing\__ACTIVE\__POST\ApplePodcasts\Your Podcasts.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -231,7 +231,7 @@
       DTS:ObjectName="sInputPath">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">C:\Users\bryce\Downloads\Your Podcasts.csv</DTS:Property>
+        DTS:Name="ParameterValue">C:\Users\bryce\Data\ApplePodcasts\Your Podcasts.csv</DTS:Property>
     </DTS:PackageParameter>
     <DTS:PackageParameter
       DTS:CreationName=""
@@ -240,7 +240,7 @@
       DTS:ObjectName="sOutputPath">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">C:\Users\bryce\Desktop\Your Podcasts.txt</DTS:Property>
+        DTS:Name="ParameterValue">C:\Users\bryce\DataProcessing\__ACTIVE\__POST\ApplePodcasts\Your Podcasts.txt</DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables />

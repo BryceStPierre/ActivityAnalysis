@@ -11,20 +11,18 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="ExtractTextDataSets"
   DTS:PackageType="5"
-  DTS:VersionBuild="83"
-  DTS:VersionGUID="{76CA96B7-6462-4C78-8C06-F471D770B509}">
+  DTS:VersionBuild="96"
+  DTS:VersionGUID="{2A4660E0-768D-4E20-9D1A-5DA13C13D222}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[TsvDataSetFile]"
+      DTS:refId="Package.ConnectionManagers[DataSetTextFile]"
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{B2D482A6-5257-48BF-9E98-E11F63D9FAB1}"
-      DTS:ObjectName="TsvDataSetFile">
+      DTS:ObjectName="DataSetTextFile">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[User::sPath]</DTS:PropertyExpression>
-      <DTS:PropertyExpression
-        DTS:Name="TextQualifier">@[User::sTextQualifier]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[User::sFilePath]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -130,7 +128,7 @@
       DTS:ObjectName="sMetaTable">
       <DTS:Property
         DTS:DataType="8"
-        DTS:Name="ParameterValue">Integration.CsvDataSets</DTS:Property>
+        DTS:Name="ParameterValue">Integration.ExtractDataSets</DTS:Property>
     </DTS:PackageParameter>
   </DTS:PackageParameters>
   <DTS:Variables>
@@ -157,7 +155,7 @@
       DTS:DTSID="{69A2B057-45EA-4855-8E8D-F09EA969278C}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="sPath">
+      DTS:ObjectName="sFilePath">
       <DTS:VariableValue
         DTS:DataType="8">C:\Users\bryce\Data\__Active\ApplePodcasts\Your Podcasts.txt</DTS:VariableValue>
     </DTS:Variable>
@@ -248,17 +246,6 @@
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].Columns[Path]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].ExternalColumns[Path]"
-                      length="250"
-                      lineageId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].Columns[Path]"
-                      name="Path"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].Columns[SourceTable]"
                       codePage="1252"
                       dataType="str"
@@ -269,21 +256,32 @@
                       lineageId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].Columns[SourceTable]"
                       name="SourceTable"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].Columns[FilePath]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].ExternalColumns[FilePath]"
+                      length="250"
+                      lineageId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].Columns[FilePath]"
+                      name="FilePath"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].ExternalColumns[Path]"
-                      codePage="1252"
-                      dataType="str"
-                      length="250"
-                      name="Path" />
                     <externalMetadataColumn
                       refId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].ExternalColumns[SourceTable]"
                       codePage="1252"
                       dataType="str"
                       length="102"
                       name="SourceTable" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].ExternalColumns[FilePath]"
+                      codePage="1252"
+                      dataType="str"
+                      length="250"
+                      name="FilePath" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -292,12 +290,12 @@
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Error Output].Columns[Path]"
+                      refId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Error Output].Columns[FilePath]"
                       codePage="1252"
                       dataType="str"
                       length="250"
-                      lineageId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Error Output].Columns[Path]"
-                      name="Path" />
+                      lineageId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Error Output].Columns[FilePath]"
+                      name="FilePath" />
                     <outputColumn
                       refId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Error Output].Columns[SourceTable]"
                       codePage="1252"
@@ -323,11 +321,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT Get Text Data Sets\RSDST - Data Set Enum"
+              refId="Package\DFT Get Text Data Sets\RS - Data Set Enum"
               componentClassID="Microsoft.RecordsetDestination"
               contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
-              name="RSDST - Data Set Enum">
+              name="RS - Data Set Enum">
               <properties>
                 <property
                   dataType="System.String"
@@ -336,24 +334,24 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\DFT Get Text Data Sets\RSDST - Data Set Enum.Inputs[Recordset Destination Input]"
+                  refId="Package\DFT Get Text Data Sets\RS - Data Set Enum.Inputs[Recordset Destination Input]"
                   hasSideEffects="true"
                   name="Recordset Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT Get Text Data Sets\RSDST - Data Set Enum.Inputs[Recordset Destination Input].Columns[Path]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="250"
-                      cachedName="Path"
-                      lineageId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].Columns[Path]" />
-                    <inputColumn
-                      refId="Package\DFT Get Text Data Sets\RSDST - Data Set Enum.Inputs[Recordset Destination Input].Columns[SourceTable]"
+                      refId="Package\DFT Get Text Data Sets\RS - Data Set Enum.Inputs[Recordset Destination Input].Columns[SourceTable]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="102"
                       cachedName="SourceTable"
                       lineageId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].Columns[SourceTable]" />
+                    <inputColumn
+                      refId="Package\DFT Get Text Data Sets\RS - Data Set Enum.Inputs[Recordset Destination Input].Columns[FilePath]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="FilePath"
+                      lineageId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output].Columns[FilePath]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -363,7 +361,7 @@
           <paths>
             <path
               refId="Package\DFT Get Text Data Sets.Paths[OLE DB Source Output]"
-              endId="Package\DFT Get Text Data Sets\RSDST - Data Set Enum.Inputs[Recordset Destination Input]"
+              endId="Package\DFT Get Text Data Sets\RS - Data Set Enum.Inputs[Recordset Destination Input]"
               name="OLE DB Source Output"
               startId="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths.Outputs[OLE DB Source Output]" />
           </paths>
@@ -405,7 +403,7 @@
           <DTS:ObjectData>
             <BulkInsertTask:BulkInsertTaskData
               BulkInsertTask:CheckConstraints="False"
-              BulkInsertTask:CodePage="65001"
+              BulkInsertTask:CodePage="1252"
               BulkInsertTask:SourceConnectionName="{B2D482A6-5257-48BF-9E98-E11F63D9FAB1}"
               BulkInsertTask:DestinationConnectionName="{6C0836B1-215D-4017-B967-ACF7260B0AB7}"
               BulkInsertTask:DestinationTableName="Source.ApplePodcasts"
@@ -446,16 +444,16 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{9E508C1F-B279-4603-BF87-CF7018BE27D9}"
-          DTS:ObjectName="{9E508C1F-B279-4603-BF87-CF7018BE27D9}"
+          DTS:DTSID="{708D4224-13E9-4530-8A4D-75907969248E}"
+          DTS:ObjectName="{708D4224-13E9-4530-8A4D-75907969248E}"
           DTS:ValueIndex="0"
-          DTS:VariableName="User::sPath" />
+          DTS:VariableName="User::sSourceTable" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{746BD992-3A4C-48C9-9B3C-C49AD2E1169B}"
-          DTS:ObjectName="{746BD992-3A4C-48C9-9B3C-C49AD2E1169B}"
+          DTS:DTSID="{70DB7649-5AE4-49CB-B272-FD5929A2AE4F}"
+          DTS:ObjectName="{70DB7649-5AE4-49CB-B272-FD5929A2AE4F}"
           DTS:ValueIndex="1"
-          DTS:VariableName="User::sSourceTable" />
+          DTS:VariableName="User::sFilePath" />
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
   </DTS:Executables>
@@ -554,26 +552,26 @@
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="220,42"
-          Id="Package\DFT Get Text Data Sets\RSDST - Data Set Enum"
-          TopLeft="40.5,115" />
+          Id="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths"
+          TopLeft="42.25,37" />
         <NodeLayout
           Size="220,42"
-          Id="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths"
-          TopLeft="40.5,37" />
+          Id="Package\DFT Get Text Data Sets\RS - Data Set Enum"
+          TopLeft="42.25,108" />
         <EdgeLayout
           Id="Package\DFT Get Text Data Sets.Paths[OLE DB Source Output]"
-          TopLeft="150.5,79">
+          TopLeft="152.25,79">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36"
+              EndConnector="0,29"
               Start="0,0"
-              End="0,28.5">
+              End="0,21.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.5" />
+                    End="0,21.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

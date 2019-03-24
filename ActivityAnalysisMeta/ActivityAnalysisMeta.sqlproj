@@ -71,11 +71,12 @@
     <Build Include="Integration\Tables\DataSets.sql" />
     <Build Include="Integration\Tables\DataSources.sql" />
     <None Include="Scripts\PopulateDirectories.sql" />
-    <Build Include="Integration\Views\CsvDataSets.sql" />
     <Build Include="Security\Schemas\Integration.sql" />
     <Build Include="Security\Schemas\Environment.sql" />
     <Build Include="Environment\Tables\Directories.sql" />
     <Build Include="Environment\Stored Procedures\UpdateDataSetPath.sql" />
+    <Build Include="Integration\Views\ConvertDataSets.sql" />
+    <Build Include="Integration\Views\ExtractDataSets.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\PopulateDataSources.sql" />
