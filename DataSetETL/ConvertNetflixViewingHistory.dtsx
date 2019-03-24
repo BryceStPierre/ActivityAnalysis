@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="ConvertNetflixViewingHistory"
   DTS:PackageType="5"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{B7F912E2-D01D-4564-ADC8-5F0FD32B10B7}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{997BCCE3-337A-4BEA-A9CD-9BA8F83BFE99}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -41,7 +41,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Title"
-              DTS:DTSID="{D9F7A5DE-C059-4114-A5BD-09DE8F16DF48}"
+              DTS:DTSID="{CC3DF4A2-7008-406A-9598-201823F00CCF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -50,7 +50,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Date"
-              DTS:DTSID="{21EBF197-563C-4769-834E-A6EDD6B13A27}"
+              DTS:DTSID="{78DECED1-9F7E-421C-8DB6-10C8A6157DAB}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>

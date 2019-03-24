@@ -74,6 +74,7 @@
     <Build Include="Stage\Tables\ApplePodcasts.sql" />
     <Build Include="Stage\Stored Procedures\TransformApplePodcastHistory.sql" />
     <Build Include="Stage\Stored Procedures\TransformApplePodcasts.sql" />
-    <Build Include="Stage\Tables\NetflixViewingHistory.sql" />
+    <Build Include="Source\Tables\NetflixViewingHistory.sql" />
+    <Build Include="Source\Tables\TekSavvyInternetUsage.sql" />
   </ItemGroup>
 </Project>

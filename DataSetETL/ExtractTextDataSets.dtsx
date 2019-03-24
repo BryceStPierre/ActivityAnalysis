@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="ExtractTextDataSets"
   DTS:PackageType="5"
-  DTS:VersionBuild="96"
-  DTS:VersionGUID="{2A4660E0-768D-4E20-9D1A-5DA13C13D222}">
+  DTS:VersionBuild="97"
+  DTS:VersionGUID="{1A9204B7-A71A-4F9A-BAB5-8180D05BA077}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -31,7 +31,7 @@
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x0022_"
-          DTS:CodePage="65001"
+          DTS:CodePage="1252"
           DTS:ConnectionString="C:\Users\bryce\Data\__Active\ApplePodcasts\Your Podcasts.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
@@ -41,7 +41,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Last updated"
-              DTS:DTSID="{3C4B0B23-369A-4F9E-8D89-B88AE43F9CF9}"
+              DTS:DTSID="{4149B1EF-753D-4F67-A69B-8A9D2F25CE76}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -50,7 +50,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Added on"
-              DTS:DTSID="{FACFC879-54D8-46AA-8D08-6E66C9D636C5}"
+              DTS:DTSID="{9B451758-8ECC-47C1-B8E2-08291A25CB95}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -59,7 +59,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Feed URL"
-              DTS:DTSID="{1C6E55D4-147D-4A3E-867B-6918E4E96439}"
+              DTS:DTSID="{4DF63AFA-634A-4BB6-8995-B8531B838C11}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -68,7 +68,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Title"
-              DTS:DTSID="{FC07F61C-C8F4-4F9F-9E2C-82E972C10664}"
+              DTS:DTSID="{C1EFB422-0464-4E72-A0E2-2CA4767FDBD6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -77,7 +77,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Subscribed?"
-              DTS:DTSID="{B1A8C79E-CBA9-4A3C-90DD-7DF723A1D8C6}"
+              DTS:DTSID="{CF3B2807-80D5-4910-A0CB-619D45AC7CFD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -86,7 +86,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Last touched on"
-              DTS:DTSID="{32D82D7F-C3F8-4EC5-852F-A3B07BDAA08C}"
+              DTS:DTSID="{F4D2B693-22C5-402A-8182-79AC54AF6446}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -95,7 +95,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Show type"
-              DTS:DTSID="{E65372DA-BD56-4470-B3CD-83B221E196D9}"
+              DTS:DTSID="{2241F9BE-FD7E-4AF3-8FC4-E390E4A2364B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -104,7 +104,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Sort"
-              DTS:DTSID="{304D5022-CC4E-4BFB-9A13-1A5852E52AA6}"
+              DTS:DTSID="{62BFFB05-861C-4AC2-886C-1973E62BF845}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -113,7 +113,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Playback newest to oldest"
-              DTS:DTSID="{A1E91EA2-E2FD-4312-9352-F75506F3FA8E}"
+              DTS:DTSID="{047AD3E9-878D-4ED8-9322-FC43AB1F7E01}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
