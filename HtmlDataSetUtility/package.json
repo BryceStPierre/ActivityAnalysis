@@ -1,7 +1,7 @@
 {
-  "name": "html-data-utility",
+  "name": "html-data-set-utility",
   "version": "0.0.0",
-  "description": "HtmlDataUtility",
+  "description": "HtmlDataSetUtility",
   "main": "app.js",
   "author": {
     "name": ""
