@@ -3,4 +3,4 @@
 		PostPath AS FilePath,
 		CONCAT(CONCAT('Source.', DataSource), Name) AS SourceTable
 	FROM Integration.DataSets
-	WHERE PostPath IS NOT NULL;
+	WHERE PostPath IS NOT NULL AND Load = 1;

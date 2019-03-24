@@ -4,4 +4,4 @@
 		PrePath, 
 		PostPath
 	FROM Integration.DataSets
-	WHERE PrePath IS NOT NULL AND PostPath IS NOT NULL;
+	WHERE PrePath IS NOT NULL AND PostPath IS NOT NULL AND Load = 1;
