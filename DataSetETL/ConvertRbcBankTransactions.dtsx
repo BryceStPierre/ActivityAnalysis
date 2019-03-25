@@ -1,0 +1,757 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/22/2019 10:53:49 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BRYCE-DESKTOP"
+  DTS:CreatorName="BRYCE-DESKTOP\bryce"
+  DTS:DTSID="{9C4A8714-6FA6-4DCA-BEA7-94B3CD116A2C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="4105"
+  DTS:ObjectName="ConvertRbcBankTransactions"
+  DTS:PackageType="5"
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{9279BD5F-AC78-4F79-B25F-F2C9101FC144}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[InputCsvFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{321D42B5-CB90-4A40-B87B-4DD5806E1EDB}"
+      DTS:ObjectName="InputCsvFile">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::sInputPath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="4105"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\bryce\Data\RbcBankTransactions\csv67011.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Account Type"
+              DTS:DTSID="{D4141890-B822-4AB2-B273-006528BB63B3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Account Number"
+              DTS:DTSID="{50641CA4-AF97-4678-9A43-849A3FC46CDA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Date"
+              DTS:DTSID="{C2AD21E9-47AD-407F-B99D-B1BF0CE1F9E1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cheque Number"
+              DTS:DTSID="{F6A6238A-FA61-43E9-895F-9F26B24D3C4C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Description 1"
+              DTS:DTSID="{35541E16-1EAA-4621-83CE-BE29104708EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Description 2"
+              DTS:DTSID="{1E9956FF-4681-4A7E-AAEE-A329EC3A78F0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CAD$"
+              DTS:DTSID="{5BE1E9DA-4653-4A34-B773-501EADCCA288}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="USD$"
+              DTS:DTSID="{7B1C375D-5F8E-4D79-A535-05387D6C7C05}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OutputTextFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{BB85754E-6DAB-44B3-82CF-739FD06D8E3A}"
+      DTS:ObjectName="OutputTextFile">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::sOutputPath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="4105"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\bryce\DataProcessing\__ACTIVE\__POST\RbcBankTransactions\csv67011.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Account Type"
+              DTS:DTSID="{356F7C66-599D-417D-A45F-8AF7CBCD654A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Account Number"
+              DTS:DTSID="{328E4A2A-1F51-4007-BCD9-768A185930AC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Transaction Date"
+              DTS:DTSID="{A6BE0E41-C287-4B1C-BE8E-DA136B129CC2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cheque Number"
+              DTS:DTSID="{B2B7CA24-EFA7-4562-B491-DD0DF462F0CF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Description 1"
+              DTS:DTSID="{2E102240-CDD6-4DAD-9707-6D766B2F4F09}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Description 2"
+              DTS:DTSID="{DCCE0517-119A-4808-BE1B-9D7A89A4E62F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CAD$"
+              DTS:DTSID="{F92536DD-3889-4A4E-9A17-37C33B448D0A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="USD$"
+              DTS:DTSID="{490E90EB-90E4-4674-9372-18627A4C7ADE}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{48353D06-1DC0-451C-B720-4B3FA0E694B7}"
+      DTS:ObjectName="sInputPath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\bryce\Data\RbcBankTransactions\csv67011.csv</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{77208918-272D-406C-A401-97D731C35ACF}"
+      DTS:ObjectName="sOutputPath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\bryce\DataProcessing\__ACTIVE\__POST\RbcBankTransactions\csv67011.txt</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Extract CSV File to Text File"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B36B9A92-903A-4560-BB48-3C5982E37162}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Extract CSV File to Text File"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Extract CSV File to Text File\Input CSV File"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="4105"
+              name="Input CSV File"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Extract CSV File to Text File\Input CSV File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[InputCsvFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[InputCsvFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Account Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Account Type]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Account Type]"
+                      name="Account Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Account Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Account Number]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Account Number]"
+                      name="Account Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Transaction Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Transaction Date]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Transaction Date]"
+                      name="Transaction Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Cheque Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Cheque Number]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Cheque Number]"
+                      name="Cheque Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Description 1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Description 1]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Description 1]"
+                      name="Description 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Description 2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Description 2]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Description 2]"
+                      name="Description 2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[CAD$]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[CAD$]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[CAD$]"
+                      name="CAD$"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[USD$]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[USD$]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[USD$]"
+                      name="USD$"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Account Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Account Type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Account Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Account Number" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Transaction Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Transaction Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Cheque Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Cheque Number" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Description 1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Description 1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Description 2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Description 2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[CAD$]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CAD$" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[USD$]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="USD$" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Extract CSV File to Text File\Output Text File"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="4105"
+              name="Output Text File">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Extract CSV File to Text File\Output Text File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[OutputTextFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[OutputTextFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[Account Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Account Type"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Account Type]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Account Type]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[Account Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Account Number"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Account Number]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Account Number]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[Transaction Date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Transaction Date"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Transaction Date]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Transaction Date]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[Cheque Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Cheque Number"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Cheque Number]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Cheque Number]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[Description 1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Description 1"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Description 1]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Description 1]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[Description 2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Description 2"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Description 2]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Description 2]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[CAD$]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CAD$"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[CAD$]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[CAD$]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[USD$]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="USD$"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[USD$]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[USD$]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Account Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Account Type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Account Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Account Number" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Transaction Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Transaction Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Cheque Number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Cheque Number" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Description 1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Description 1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Description 2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Description 2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[CAD$]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CAD$" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[USD$]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="USD$" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Extract CSV File to Text File.Paths[Flat File Source Output]"
+              endId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="241,42"
+          Id="Package\DFT Extract CSV File to Text File"
+          TopLeft="38,34" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Extract CSV File to Text File">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DFT Extract CSV File to Text File\Input CSV File"
+          TopLeft="37,39" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DFT Extract CSV File to Text File\Output Text File"
+          TopLeft="37,113" />
+        <EdgeLayout
+          Id="Package\DFT Extract CSV File to Text File.Paths[Flat File Source Output]"
+          TopLeft="115.5,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

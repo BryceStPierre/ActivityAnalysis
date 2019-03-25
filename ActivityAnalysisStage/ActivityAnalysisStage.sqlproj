@@ -80,5 +80,8 @@
     <Build Include="Stage\Stored Procedures\TransformTekSavvyInternetUsage.sql" />
     <Build Include="Stage\Stored Procedures\TransformNetflixViewingHistory.sql" />
     <Build Include="Stage\Tables\NetflixViewingHistory.sql" />
+    <Build Include="Source\Tables\RbcBankTransactions.sql" />
+    <Build Include="Stage\Stored Procedures\TransformRbcBankTransactions.sql" />
+    <Build Include="Stage\Tables\RbcBankTransactions.sql" />
   </ItemGroup>
 </Project>
