@@ -1,0 +1,957 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/22/2019 10:53:49 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BRYCE-DESKTOP"
+  DTS:CreatorName="BRYCE-DESKTOP\bryce"
+  DTS:DTSID="{099D0288-67E3-422B-A97A-CEA91A80A3BF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1100.123"
+  DTS:LocaleID="4105"
+  DTS:ObjectName="ConvertTelusCallHistory"
+  DTS:PackageType="5"
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{A73BEB2E-465C-45C6-80B7-DD159739EBEA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[InputCsvFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{FB3727DF-B47C-4B22-9AC7-F7DFCA1A76F4}"
+      DTS:ObjectName="InputCsvFile">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::sInputPath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="4105"
+          DTS:HeaderRowDelimiter="_x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\bryce\Data\TelusCallHistory\airtime-usage-two_month_ago.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date"
+              DTS:DTSID="{57BF7DC6-244C-490B-9904-2261AD1E2B17}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" Time"
+              DTS:DTSID="{5098B2CB-5F2A-43A1-932D-287F9C095B8E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Duration (min)"
+              DTS:DTSID="{111E3E47-1B13-4FE7-92BC-6FC61B4382A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Caller"
+              DTS:DTSID="{C1D4C691-968C-4948-9CE5-AD346EC880E3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Callee"
+              DTS:DTSID="{5F092D73-A1AB-431F-AB60-31E16EDB49DA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="From Location"
+              DTS:DTSID="{DE4544DB-3BFB-4C6C-AF21-664BE40B159A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" To Location"
+              DTS:DTSID="{F909F01A-B091-46D1-81B9-5626FDC60B79}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" Long Distance Charge"
+              DTS:DTSID="{DB0D9C3C-DC57-40E8-B1BA-C0673BB38909}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" Air Time Charge"
+              DTS:DTSID="{51CF0AA3-3D65-428D-9941-66A01592F546}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" Cost"
+              DTS:DTSID="{A860413E-1D30-4671-BDD1-1146E7A4ED61}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Roaming"
+              DTS:DTSID="{C451C02B-EEAC-4CF6-BCE0-45CAF609C41B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Direction"
+              DTS:DTSID="{14614316-E077-4F5F-A9C6-57D68EEBFF19}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OutputTextFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{3C42FB4D-F25F-449A-8CB7-AF575D4FFB0A}"
+      DTS:ObjectName="OutputTextFile">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::sOutputPath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="4105"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\bryce\DataProcessing\__ACTIVE\__POST\TelusCallHistory\airtime-usage-two_month_ago.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date"
+              DTS:DTSID="{6F60FE65-0BDC-40B5-8488-4B6A3A070833}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Time"
+              DTS:DTSID="{DF96D5B7-8218-40A0-93B3-98A2CA0AA42C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Duration (min)"
+              DTS:DTSID="{088DD0CD-7796-4AA8-9629-F4D9970A0F08}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Caller"
+              DTS:DTSID="{15F2CA57-61E3-4298-97B8-9D98A3CF5DC9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Callee"
+              DTS:DTSID="{3FD754CC-F486-4233-9061-4CFD84467AEC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="From Location"
+              DTS:DTSID="{3198F0F5-B7C5-4033-A026-E261B6F72AAD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="To Location"
+              DTS:DTSID="{8F3F4C38-13BB-42BB-8F1D-DA27816C255B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Long Distance Charge"
+              DTS:DTSID="{DE9C2C04-CBE6-4EC0-B60B-0D7F4B876138}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Air Time Charge"
+              DTS:DTSID="{2D4624F7-BE99-4450-BDAF-E73713553C1A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cost"
+              DTS:DTSID="{D1099F86-964D-4DC7-8EAC-C1208ADF785E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Roaming"
+              DTS:DTSID="{2860BC78-5B1B-4978-86DC-C19EDC8C5D4D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Direction"
+              DTS:DTSID="{E221D490-4B07-4781-8C06-A3D8FFA2A36F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{10EB4244-2640-4CC8-9BC5-3A1C01A57CCE}"
+      DTS:ObjectName="sInputPath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\bryce\Data\TelusCallHistory\airtime-usage-two_month_ago.csv</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{CB3D68BE-751D-4A74-A016-25EF3A0B1A93}"
+      DTS:ObjectName="sOutputPath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\bryce\DataProcessing\__ACTIVE\__POST\TelusCallHistory\airtime-usage-two_month_ago.txt</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Extract CSV File to Text File"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0048A809-178A-4223-81E2-B1EC15442647}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Extract CSV File to Text File"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Extract CSV File to Text File\Input CSV File"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="4105"
+              name="Input CSV File"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Extract CSV File to Text File\Input CSV File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[InputCsvFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[InputCsvFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[ Time]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[ Time]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[ Time]"
+                      name=" Time"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Duration (min)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Duration (min)]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Duration (min)]"
+                      name="Duration (min)"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Caller]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Caller]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Caller]"
+                      name="Caller"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Callee]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Callee]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Callee]"
+                      name="Callee"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[From Location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[From Location]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[From Location]"
+                      name="From Location"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[ To Location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[ To Location]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[ To Location]"
+                      name=" To Location"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[ Long Distance Charge]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[ Long Distance Charge]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[ Long Distance Charge]"
+                      name=" Long Distance Charge"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[ Air Time Charge]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[ Air Time Charge]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[ Air Time Charge]"
+                      name=" Air Time Charge"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[ Cost]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[ Cost]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[ Cost]"
+                      name=" Cost"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Roaming]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Roaming]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Roaming]"
+                      name="Roaming"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Direction]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Direction]"
+                      length="50"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Direction]"
+                      name="Direction"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[ Time]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" Time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Duration (min)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Duration (min)" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Caller]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Caller" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Callee]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Callee" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[From Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="From Location" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[ To Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" To Location" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[ Long Distance Charge]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" Long Distance Charge" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[ Air Time Charge]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" Air Time Charge" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[ Cost]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" Cost" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Roaming]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Roaming" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].ExternalColumns[Direction]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Direction" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Extract CSV File to Text File\Output Text File"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="4105"
+              name="Output Text File">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Extract CSV File to Text File\Output Text File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[OutputTextFile]"
+                  connectionManagerRefId="Package.ConnectionManagers[OutputTextFile]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[Date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[Duration (min)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Duration (min)"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Duration (min)]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Duration (min)]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[Caller]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Caller"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Caller]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Caller]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[Callee]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Callee"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Callee]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Callee]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[From Location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="From Location"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[From Location]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[From Location]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[Roaming]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Roaming"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Roaming]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Roaming]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[Direction]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Direction"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Direction]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Direction]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Duration (min)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Duration (min)" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Caller]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Caller" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Callee]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Callee" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[From Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="From Location" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Roaming]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Roaming" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Direction]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Direction" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Time]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[To Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="To Location" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Long Distance Charge]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Long Distance Charge" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Air Time Charge]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Air Time Charge" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Cost]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Cost" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Extract CSV File to Text File.Paths[Flat File Source Output]"
+              endId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="241,42"
+          Id="Package\DFT Extract CSV File to Text File"
+          TopLeft="38,34" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Extract CSV File to Text File">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DFT Extract CSV File to Text File\Input CSV File"
+          TopLeft="41,41" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DFT Extract CSV File to Text File\Output Text File"
+          TopLeft="42,116" />
+        <EdgeLayout
+          Id="Package\DFT Extract CSV File to Text File.Paths[Flat File Source Output]"
+          TopLeft="120,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
