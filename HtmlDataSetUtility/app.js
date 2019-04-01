@@ -1,45 +1,66 @@
 'use strict';
 
+// Required packages.
 const fs = require('fs');
-const readline = require('readline');
 const cheerio = require('cheerio');
 
+// Custom packages.
+const exitPrompt = require('./exitPrompt');
+const writeTextFile = require('./writeTextFile');
+
+const extractYouTubeSearchHistory = require('./extractYouTubeSearchHistory');
+const extractYouTubeViewingHistory = require('./extractYouTubeViewingHistory');
+
+// Constants.
 const DEBUG = true;
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-// First two arguments are node.exe and app.js.
-if (process.argv.length < 4) {
+// Main program.
+if (process.argv.length < 5) { // First two arguments: node.exe, app.js.
     console.log('The input or output path argument(s) have not been provided...\n');
 
-    if (DEBUG) {
-        rl.question('Press any key to continue...', (response) => {
-            rl.close();
-            process.exit(-1);
-        });
-    } else {
+    if (DEBUG)
+        exitPrompt();
+    else
         process.exit(-1);
-    }
 }
 
-const inputPath = process.argv[2];
-const outputPath = process.argv[3];
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+console.log(' Activity Analysis: HTML Data Set Utility ');
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n');
 
-console.log(process.argv.length);
+const dataSetName = process.argv[2];
+const inputPath = process.argv[3];
+const outputPath = process.argv[4];
 
+//exitPrompt();
+
+console.log(`Data set name: ${dataSetName}`);
 console.log(`Input path: ${inputPath}`);
-console.log(`Output path: ${outputPath}`);
+console.log(`Output path: ${outputPath}\n`);
 
-fs.readFile()
+console.log('Extracting records from HTML data set...')
 
-console.log('HTML conversion complete.\n');
+fs.readFile(inputPath, (err, data) => {
+    if (err) throw err;
 
-if (DEBUG) {
-    rl.question('Press any key to continue...', (response) => {
-        rl.close();
-        process.exit(0);
-    });
-}
+    let records;
+
+    switch (dataSetName) {
+        case 'YouTubeSearchHistory':
+            records = extractYouTubeSearchHistory(data); break;
+        case 'YouTubeViewingHistory':
+            records = extractYouTubeViewingHistory(data); break;
+        default:
+            records = []; break;
+    }
+
+    let result = writeTextFile(outputPath, records);
+    
+    if (result === -1)
+        console.log('No records were extracted.\n');
+    else
+        console.log(`HTML data set processed: ${result} records extracted.\n`);
+
+    if (DEBUG)
+        exitPrompt();
+});

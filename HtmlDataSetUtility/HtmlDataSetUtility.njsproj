@@ -4,7 +4,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>HtmlDataSetUtility</Name>
     <RootNamespace>HtmlDataSetUtility</RootNamespace>
-    <ScriptArguments>C:\Users\bryce\Projects\ActivityAnalysis\HtmlDataSetUtility\Test.html C:\Users\bryce\Testing\test.txt</ScriptArguments>
+    <ScriptArguments>YouTubeViewingHistory C:\Users\bryce\Data\YouTubeViewingHistory\watch-history.html C:\Users\bryce\DataProcessing\__ACTIVE\__POST\YouTubeViewingHistory\watch-history.txt</ScriptArguments>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -31,9 +31,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="exitPrompt.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="extractYouTubeSearchHistory.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="extractYouTubeViewingHistory.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="writeTextFile.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <Content Include="Test.html">
+    <Content Include="YouTubeViewingHistoryTest.html" />
+    <Content Include="YouTubeSearchHistoryTest.html">
       <SubType>Code</SubType>
     </Content>
   </ItemGroup>
