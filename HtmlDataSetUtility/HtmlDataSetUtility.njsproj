@@ -34,10 +34,10 @@
     <Compile Include="exitPrompt.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="extractYouTubeSearchHistory.js">
+    <Compile Include="strategies\extractYouTubeSearchHistory.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="extractYouTubeViewingHistory.js">
+    <Compile Include="strategies\extractYouTubeViewingHistory.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="writeTextFile.js">
@@ -45,10 +45,14 @@
     </Compile>
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <Content Include="YouTubeViewingHistoryTest.html" />
-    <Content Include="YouTubeSearchHistoryTest.html">
+    <Content Include="testing\YouTubeViewingHistoryTest.html" />
+    <Content Include="testing\YouTubeSearchHistoryTest.html">
       <SubType>Code</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="strategies\" />
+    <Folder Include="testing\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

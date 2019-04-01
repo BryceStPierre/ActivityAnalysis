@@ -2,14 +2,13 @@
 
 // Required packages.
 const fs = require('fs');
-const cheerio = require('cheerio');
 
 // Custom packages.
 const exitPrompt = require('./exitPrompt');
 const writeTextFile = require('./writeTextFile');
 
-const extractYouTubeSearchHistory = require('./extractYouTubeSearchHistory');
-const extractYouTubeViewingHistory = require('./extractYouTubeViewingHistory');
+const extractYouTubeSearchHistory = require('./strategies/extractYouTubeSearchHistory');
+const extractYouTubeViewingHistory = require('./strategies/extractYouTubeViewingHistory');
 
 // Constants.
 const DEBUG = true;
