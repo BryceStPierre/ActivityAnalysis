@@ -13,7 +13,7 @@ function extractYouTubeSearchHistory (data) {
 
         let query = $s('a').text();
         let dateRaw = html.split('<br>')[1];
-        let date = dateRaw.trim();
+        let date = new Date(dateRaw.trim()).toISOString();
 
         array.push({ query, date });
     });

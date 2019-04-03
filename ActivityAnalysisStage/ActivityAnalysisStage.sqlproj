@@ -83,5 +83,13 @@
     <Build Include="Source\Tables\RbcBankTransactions.sql" />
     <Build Include="Stage\Stored Procedures\TransformRbcBankTransactions.sql" />
     <Build Include="Stage\Tables\RbcBankTransactions.sql" />
+    <Build Include="Source\Tables\AppleAppDownloads.sql" />
+    <Build Include="Source\Tables\GoogleBrowserHistory.sql" />
+    <Build Include="Source\Tables\RescueTimeActivityHistory.sql" />
+    <Build Include="Source\Tables\TelusCallHistory.sql" />
+    <Build Include="Source\Tables\TelusDataHistory.sql" />
+    <Build Include="Source\Tables\TelusMessageHistory.sql" />
+    <Build Include="Source\Tables\YouTubeSearchHistory.sql" />
+    <Build Include="Source\Tables\YouTubeViewingHistory.sql" />
   </ItemGroup>
 </Project>

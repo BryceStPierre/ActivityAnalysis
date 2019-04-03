@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="ConvertTelusCallHistory"
   DTS:PackageType="5"
-  DTS:VersionBuild="49"
-  DTS:VersionGUID="{A73BEB2E-465C-45C6-80B7-DD159739EBEA}">
+  DTS:VersionBuild="50"
+  DTS:VersionGUID="{D24B5C5F-7504-4115-9D72-ADAB1B5AF726}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -805,6 +805,46 @@
                       cachedName="Direction"
                       externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Direction]"
                       lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[Direction]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[ Time]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" Time"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Time]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[ Time]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[ To Location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" To Location"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[To Location]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[ To Location]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[ Long Distance Charge]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" Long Distance Charge"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Long Distance Charge]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[ Long Distance Charge]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[ Air Time Charge]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" Air Time Charge"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Air Time Charge]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[ Air Time Charge]" />
+                    <inputColumn
+                      refId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].Columns[ Cost]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" Cost"
+                      externalMetadataColumnId="Package\DFT Extract CSV File to Text File\Output Text File.Inputs[Flat File Destination Input].ExternalColumns[Cost]"
+                      lineageId="Package\DFT Extract CSV File to Text File\Input CSV File.Outputs[Flat File Source Output].Columns[ Cost]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -922,12 +962,12 @@
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="157,42"
-          Id="Package\DFT Extract CSV File to Text File\Input CSV File"
-          TopLeft="41,41" />
-        <NodeLayout
-          Size="157,42"
           Id="Package\DFT Extract CSV File to Text File\Output Text File"
           TopLeft="42,116" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DFT Extract CSV File to Text File\Input CSV File"
+          TopLeft="41,41" />
         <EdgeLayout
           Id="Package\DFT Extract CSV File to Text File.Paths[Flat File Source Output]"
           TopLeft="120,83">

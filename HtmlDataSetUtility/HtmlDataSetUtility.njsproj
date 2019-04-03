@@ -4,7 +4,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>HtmlDataSetUtility</Name>
     <RootNamespace>HtmlDataSetUtility</RootNamespace>
-    <ScriptArguments>YouTubeViewingHistory C:\Users\bryce\Data\YouTubeViewingHistory\watch-history.html C:\Users\bryce\DataProcessing\__ACTIVE\__POST\YouTubeViewingHistory\watch-history.txt</ScriptArguments>
+    <ScriptArguments>YouTubeSearchHistory C:\Users\bryce\Data\YouTubeSearchHistory\search-history.html C:\Users\bryce\DataProcessing\__ACTIVE\__POST\YouTubeSearchHistory\search-history.txt</ScriptArguments>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />

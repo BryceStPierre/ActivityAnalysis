@@ -8,19 +8,25 @@ INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [P
 GO
 INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (3, N'Apple', N'PodcastHistory', N'Podcast History', N'CSV', NULL, NULL, 1, GETDATE(), GETDATE())
 GO
-INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (4, N'Netflix', N'ViewingHistory', N'Viewing History', N'CSV', NULL, NULL, 1, GETDATE(), GETDATE())
+INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (4, N'Google', N'BrowserHistory', N'Browser History', N'JSON', NULL, NULL, 1, GETDATE(), GETDATE())
 GO
-INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (5, N'Rbc', N'BankTransactions', N'Bank Transactions', N'CSV', NULL, NULL, 1, GETDATE(), GETDATE())
+INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (5, N'Netflix', N'ViewingHistory', N'Viewing History', N'CSV', NULL, NULL, 1, GETDATE(), GETDATE())
 GO
-INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (6, N'RescueTime', N'ActivityHistory', N'Activity History', N'CSV', NULL, NULL, 1, GETDATE(), GETDATE())
+INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (6, N'Rbc', N'BankTransactions', N'Bank Transactions', N'CSV', NULL, NULL, 1, GETDATE(), GETDATE())
 GO
-INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (7, N'TekSavvy', N'InternetUsage', N'Internet Usage', N'CSV', NULL, NULL, 1, GETDATE(), GETDATE())
+INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (7, N'RescueTime', N'ActivityHistory', N'Activity History', N'CSV', NULL, NULL, 1, GETDATE(), GETDATE())
 GO
-INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (8, N'Telus', N'CallHistory', N'Call History', N'CSV', NULL, NULL, 1, GETDATE(), GETDATE())
+INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (8, N'TekSavvy', N'InternetUsage', N'Internet Usage', N'CSV', NULL, NULL, 1, GETDATE(), GETDATE())
 GO
-INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (9, N'Telus', N'DataHistory', N'Data History', N'CSV', NULL, NULL, 1, GETDATE(), GETDATE())
+INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (9, N'Telus', N'CallHistory', N'Call History', N'CSV', NULL, NULL, 1, GETDATE(), GETDATE())
 GO
-INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (10, N'Telus', N'MessageHistory', N'Message History', N'CSV', NULL, NULL, 1, GETDATE(), GETDATE())
+INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (10, N'Telus', N'DataHistory', N'Data History', N'CSV', NULL, NULL, 1, GETDATE(), GETDATE())
+GO
+INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (11, N'Telus', N'MessageHistory', N'Message History', N'CSV', NULL, NULL, 1, GETDATE(), GETDATE())
+GO
+INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (12, N'YouTube', N'SearchHistory', N'Search History', N'HTML', NULL, NULL, 1, GETDATE(), GETDATE())
+GO
+INSERT [Integration].[DataSets] ([Id], [DataSource], [Name], [Label], [Type], [PrePath], [PostPath], [Load], [Updated], [Created]) VALUES (13, N'YouTube', N'ViewingHistory', N'Viewing History', N'HTML', NULL, NULL, 1, GETDATE(), GETDATE())
 GO
 SET IDENTITY_INSERT [Integration].[DataSets] OFF
 GO

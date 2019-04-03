@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="ExtractTextDataSets"
   DTS:PackageType="5"
-  DTS:VersionBuild="97"
-  DTS:VersionGUID="{1A9204B7-A71A-4F9A-BAB5-8180D05BA077}">
+  DTS:VersionBuild="98"
+  DTS:VersionGUID="{1C66266F-E3A1-40B4-86C3-866F5C6E40F0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -403,7 +403,7 @@
           <DTS:ObjectData>
             <BulkInsertTask:BulkInsertTaskData
               BulkInsertTask:CheckConstraints="False"
-              BulkInsertTask:CodePage="1252"
+              BulkInsertTask:CodePage="65001"
               BulkInsertTask:SourceConnectionName="{B2D482A6-5257-48BF-9E98-E11F63D9FAB1}"
               BulkInsertTask:DestinationConnectionName="{6C0836B1-215D-4017-B967-ACF7260B0AB7}"
               BulkInsertTask:DestinationTableName="Source.ApplePodcasts"
@@ -549,15 +549,15 @@
     design-time-name="Package\DFT Get Text Data Sets">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="220,42"
-          Id="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths"
-          TopLeft="42.25,37" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="220,42"
           Id="Package\DFT Get Text Data Sets\RS - Data Set Enum"
           TopLeft="42.25,108" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\DFT Get Text Data Sets\OLEDB - Get Data Set Paths"
+          TopLeft="42.25,37" />
         <EdgeLayout
           Id="Package\DFT Get Text Data Sets.Paths[OLE DB Source Output]"
           TopLeft="152.25,79">
@@ -577,7 +577,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

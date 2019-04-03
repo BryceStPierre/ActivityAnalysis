@@ -17,9 +17,7 @@ function extractYouTubeViewingHistory (data) {
         let $c = cheerio.load(parts[1]);
         let channel = $c('a').text();
 
-        let date = parts[2] ? parts[2].trim() : '';
-
-        //console.log({ title, channel, date });
+        let date = parts[2] ? new Date(parts[2].trim()).toISOString() : '';
 
         array.push({ title, channel, date });
     });

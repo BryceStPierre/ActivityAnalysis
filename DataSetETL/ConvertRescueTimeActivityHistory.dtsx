@@ -11,8 +11,8 @@
   DTS:LocaleID="4105"
   DTS:ObjectName="ConvertRescueTimeActivityHistory"
   DTS:PackageType="5"
-  DTS:VersionBuild="74"
-  DTS:VersionGUID="{A52F06F1-1754-467C-9EC0-73CF3BF12873}">
+  DTS:VersionBuild="75"
+  DTS:VersionGUID="{C539E9E0-0C05-428B-BDEE-C892F7E21B0C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           DTS:LocaleID="4105"
           DTS:HeaderRowDelimiter="_x000A_"
           DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:TextQualifier="_x0022_"
           DTS:CodePage="1252"
           DTS:ConnectionString="C:\Users\bryce\Data\RescueTimeActivityHistory\rescuetime-activity-history.csv">
           <DTS:FlatFileColumns>
@@ -40,7 +40,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Date"
-              DTS:DTSID="{1030E298-AAB8-4FFE-A823-E096A6BCD1B4}"
+              DTS:DTSID="{5A653F44-77B5-419A-8401-E7CD0693CDE3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -49,7 +49,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="NameShort"
-              DTS:DTSID="{27834C9B-45EC-4FDE-8826-5EAC563B10F0}"
+              DTS:DTSID="{E12EC08B-91B8-467F-8549-5E37FC17E9BE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -58,7 +58,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="NameLong"
-              DTS:DTSID="{73C085A0-B3C8-407A-AC24-63F5F1418094}"
+              DTS:DTSID="{2B8E6AE2-F3C5-46FE-BFA8-A01A790D6A34}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -67,7 +67,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Type"
-              DTS:DTSID="{513E74C5-F969-43CF-84C1-BA0EFE84A0A4}"
+              DTS:DTSID="{69E71B0B-D66B-4ADD-8106-DB67569FD0C1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -76,7 +76,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Category"
-              DTS:DTSID="{2134D1A4-6812-4D94-B8C4-77B7A1534CC7}"
+              DTS:DTSID="{D2F601E8-45EB-49BB-86DE-F9E2958B1E58}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -85,7 +85,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="Seconds"
-              DTS:DTSID="{8734FFD6-5FBF-49B5-A77D-69E1190E07A3}"
+              DTS:DTSID="{367AA8FF-487C-4B91-90F5-F8A745E44651}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
