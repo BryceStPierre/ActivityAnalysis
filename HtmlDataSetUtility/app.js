@@ -31,8 +31,6 @@ const dataSetName = process.argv[2];
 const inputPath = process.argv[3];
 const outputPath = process.argv[4];
 
-//exitPrompt();
-
 console.log(`Data set name: ${dataSetName}`);
 console.log(`Input path: ${inputPath}`);
 console.log(`Output path: ${outputPath}\n`);
