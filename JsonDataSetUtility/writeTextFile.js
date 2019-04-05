@@ -4,9 +4,9 @@ function createTabSeparatedLine (array) {
     let line = '';
     for (let i = 0; i < array.length; i++) {
         if (i === array.length - 1)
-            line += array[i] + '\r\n';
+            line += (array[i] ? array[i] : ' ') + '\r\n';
         else
-            line += array[i] + '\t';
+            line += (array[i] ? array[i] : ' ') + '\t';
     }
     return line;
 }

@@ -1,8 +1,5 @@
 'use strict';
 
-// Required packages.
-const fs = require('fs');
-
 // Custom packages.
 const exitPrompt = require('./exitPrompt');
 const writeTextFile = require('./writeTextFile');
@@ -34,19 +31,20 @@ console.log(`Output path: ${outputPath}\n`);
 
 console.log('Extracting records from JSON data set...')
 
-fs.readFile(inputPath, (err, data) => {
-    if (err) throw err;
+let strategy = '';
 
-    let records;
-    let json = JSON.parse(data);
+switch (dataSetName) {
+    case 'FacebookComments':
+        strategy = './strategies/extractFacebookComments'; break;
+    case 'FacebookExternalShares':
+        strategy = './strategies/extractFacebookExternalShares'; break;
+    case 'GoogleBrowserHistory':
+        strategy = './strategies/extractGoogleBrowserHistory'; break;
+    default:
+        strategy = null; break;
+}
 
-    switch (dataSetName) {
-        case 'GoogleBrowserHistory':
-            records = require('./strategies/extractGoogleBrowserHistory')(json); break;
-        default:
-            records = []; break;
-    }
-
+require(strategy)(inputPath, (records) => {
     let result = writeTextFile(outputPath, records);
 
     if (result === -1)
@@ -58,4 +56,4 @@ fs.readFile(inputPath, (err, data) => {
         exitPrompt();
     else
         process.exit(0);
-})
+});
