@@ -38,6 +38,10 @@ switch (dataSetName) {
         strategy = './strategies/extractFacebookComments'; break;
     case 'FacebookExternalShares':
         strategy = './strategies/extractFacebookExternalShares'; break;
+    case 'FacebookLikesReactions':
+        strategy = './strategies/extractFacebookLikesReactions'; break;
+    case 'FacebookLoginActivity':
+        strategy = './strategies/extractFacebookLoginActivity'; break;
     case 'GoogleBrowserHistory':
         strategy = './strategies/extractGoogleBrowserHistory'; break;
     default:
