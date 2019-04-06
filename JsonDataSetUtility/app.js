@@ -48,6 +48,16 @@ switch (dataSetName) {
         strategy = './strategies/extractFacebookPosts'; break;
     case 'GoogleBrowserHistory':
         strategy = './strategies/extractGoogleBrowserHistory'; break;
+    case 'InstagramLikes':
+        strategy = './strategies/extractInstagramLikes'; break;
+    case 'InstagramPosts':
+        strategy = './strategies/extractInstagramPosts'; break;
+    case 'SnapchatChatHistory':
+        strategy = './strategies/extractSnapchatChatHistory'; break;
+    case 'SnapchatSnapHistory':
+        strategy = './strategies/extractSnapchatSnapHistory'; break;
+    case 'SnapchatTalkHistory':
+        strategy = './strategies/extractSnapchatTalkHistory'; break;
     default:
         strategy = null; break;
 }

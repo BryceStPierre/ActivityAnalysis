@@ -4,7 +4,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>JsonDataSetUtility</Name>
     <RootNamespace>JsonDataSetUtility</RootNamespace>
-    <ScriptArguments>FacebookPosts C:\Users\bryce\Data\FacebookPosts\your_posts.json C:\Users\bryce\DataProcessing\__ACTIVE\__POST\FacebookPosts\your_posts.txt</ScriptArguments>
+    <ScriptArguments>SnapchatTalkHistory C:\Users\bryce\Data\SnapchatTalkHistory\talk_history.json C:\Users\bryce\DataProcessing\__ACTIVE\__POST\SnapchatTalkHistory\talk_history.txt</ScriptArguments>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -51,6 +51,21 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="strategies\extractGoogleBrowserHistory.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="strategies\extractInstagramLikes.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="strategies\extractInstagramPosts.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="strategies\extractSnapchatChatHistory.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="strategies\extractSnapchatSnapHistory.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="strategies\extractSnapchatTalkHistory.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="writeTextFile.js" />
