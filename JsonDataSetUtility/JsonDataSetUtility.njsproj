@@ -4,7 +4,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>JsonDataSetUtility</Name>
     <RootNamespace>JsonDataSetUtility</RootNamespace>
-    <ScriptArguments>FacebookLoginActivity C:\Users\bryce\Data\FacebookLoginActivity\logins_and_logouts.json C:\Users\bryce\DataProcessing\__ACTIVE\__POST\FacebookLoginActivity\logins_and_logouts.txt</ScriptArguments>
+    <ScriptArguments>FacebookPosts C:\Users\bryce\Data\FacebookPosts\your_posts.json C:\Users\bryce\DataProcessing\__ACTIVE\__POST\FacebookPosts\your_posts.txt</ScriptArguments>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -42,6 +42,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="strategies\extractFacebookLoginActivity.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="strategies\extractFacebookMessages.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="strategies\extractFacebookPosts.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="strategies\extractGoogleBrowserHistory.js">
