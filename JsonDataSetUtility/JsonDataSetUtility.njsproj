@@ -35,9 +35,6 @@
     <Compile Include="strategies\extractFacebookComments.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="strategies\extractFacebookExternalShares.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="strategies\extractFacebookLikesReactions.js">
       <SubType>Code</SubType>
     </Compile>

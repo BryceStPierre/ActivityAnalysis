@@ -94,7 +94,6 @@
     <Build Include="Source\Tables\YouTubeSearchHistory.sql" />
     <Build Include="Source\Tables\YouTubeViewingHistory.sql" />
     <Build Include="Source\Tables\FacebookComments.sql" />
-    <Build Include="Source\Tables\FacebookExternalShares.sql" />
     <Build Include="Source\Tables\FacebookLikesReactions.sql" />
     <Build Include="Source\Tables\FacebookLoginActivity.sql" />
     <Build Include="Source\Tables\FacebookMessages.sql" />
