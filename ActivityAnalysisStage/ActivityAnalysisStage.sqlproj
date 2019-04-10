@@ -64,6 +64,8 @@
     <Folder Include="Stage" />
     <Folder Include="Stage\Tables" />
     <Folder Include="Stage\Stored Procedures" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Functions" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Source\Tables\ApplePodcastHistory.sql" />
@@ -102,5 +104,10 @@
     <Build Include="Source\Tables\SnapchatChatHistory.sql" />
     <Build Include="Source\Tables\SnapchatSnapHistory.sql" />
     <Build Include="Source\Tables\SnapchatTalkHistory.sql" />
+    <Build Include="Stage\Tables\AppleAppDownloads.sql" />
+    <Build Include="Stage\Stored Procedures\TransformAppleAppDownloads.sql" />
+    <Build Include="Stage\Tables\FacebookComments.sql" />
+    <Build Include="Stage\Stored Procedures\TransformFacebookComments.sql" />
+    <Build Include="dbo\Functions\STRINGBETWEEN.sql" />
   </ItemGroup>
 </Project>
