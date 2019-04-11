@@ -9,8 +9,8 @@ AS
 BEGIN
 	DECLARE @index INT, @length INT;
 	
-	SET @index = CHARINDEX(@start, @string) + LEN(@start) + 1;
-	SET @length = CHARINDEX(@end, @string) - CHARINDEX(@start, @string) - LEN(@start) - 1;
+	SET @index = CHARINDEX(@start, @string) + LEN(@start);
+	SET @length = CHARINDEX(@end, @string, @index) - CHARINDEX(@start, @string) - LEN(@start);
 
 	IF @index < 0 OR @length < 0 OR (@index + @length > LEN(@string))
 		RETURN NULL;

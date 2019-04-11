@@ -108,5 +108,15 @@
     <Build Include="Stage\Tables\FacebookComments.sql" />
     <Build Include="Stage\Stored Procedures\TransformFacebookComments.sql" />
     <Build Include="dbo\Functions\STRINGBETWEEN.sql" />
+    <Build Include="Stage\Stored Procedures\TransformFacebookLikesReactions.sql" />
+    <Build Include="Stage\Tables\FacebookLikesReactions.sql" />
+    <Build Include="Stage\Stored Procedures\TransformFacebookLoginActivity.sql" />
+    <Build Include="Stage\Tables\FacebookLoginActivity.sql" />
+    <Build Include="Stage\Tables\FacebookMessages.sql" />
+    <Build Include="Stage\Stored Procedures\TransformFacebookMessages.sql" />
+    <Build Include="Stage\Stored Procedures\TransformFacebookPosts.sql" />
+    <Build Include="Stage\Tables\FacebookPosts.sql" />
+    <Build Include="Stage\Tables\GoogleBrowserHistory.sql" />
+    <Build Include="Stage\Stored Procedures\TransformGoogleBrowserHistory.sql" />
   </ItemGroup>
 </Project>
